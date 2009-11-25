@@ -1,0 +1,39 @@
+<div style="font-size:34px;background-color:#eee;padding:15px;">You should get</div>
+<br>
+<div style="font-size:54px;">
+
+<b><%= @item[:title] %> <% if @item[:author] %> by <%= @item[:author] %><% end %> <% if @item[:artist] %> by <%= @item[:artist] %><% end %></b> <a href="<%= @item[:url] %>" style="color: black;text-decoration:none;font-size:30px;background-color:pink;padding-left:40px;padding-right:40px;">buy on <b>Amazon.com</b></a>
+</div>
+<br><br>
+
+<form action="give" method="post">
+
+<% @authors.each do |author| %>
+  <input type="hidden" name="author[]" value="<%= author %>">
+<% end %>
+
+<% @movies.each do |movie| %>
+  <input type="hidden" name="movie[]" value="<%= movie %>">
+<% end %>
+
+<% @bands.each do |band| %>
+  <input type="hidden" name="band[]" value="<%= band %>">
+<% end %>
+
+<% @electronics.each do |electronic| %>
+  <input type="hidden" name="electronic[]" value="<%= electronic %>">
+<% end %>
+
+<% @apparel.each do |apparel| %>
+  <input type="hidden" name="apparel[]" value="<%= apparel %>">
+<% end %>
+
+<% @household.each do |household| %>
+  <input type="hidden" name="household[]" value="<%= household %>">
+<% end %>
+
+
+<input type="hidden" name="page" value="<%= @next_page %>">
+  <input type="submit" value="i don't think so, give me another gift"> or 
+  <a href="/"><input type="button" value="start over">
+</form>
