@@ -38,9 +38,9 @@ post '/give' do
   @authors.each_with_index do |book, i|
     result = Amazon::Ecs.item_search('', {:author => @authors[i], :sort => 'salesrank'})
     asin = result.items.first.get('asin')
-    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin}).items.each do |item|
+    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin}).each do |item|
       next if item.get('itemattributes/author').to_s.downcase == result.items.first.get('author').to_s.downcase
-      @items << {:author => item.get('itemattributes/author'), :title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}[0..5]
+      @items << {:author => item.get('itemattributes/author'), :title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
     end
   end
 
@@ -48,7 +48,7 @@ post '/give' do
     result = Amazon::Ecs.item_search('', {:title => @movies[i], :search_index => 'DVD', :sort => 'salesrank'})
     asin = result.items.first.get('asin')
     
-    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin})[0..5].items.each do |item|   
+    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin}).items.each do |item|   
       @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
     end
   end
@@ -63,16 +63,16 @@ post '/give' do
   end
 
   @electronics.each_with_index do |brand, i|
-    result = Amazon::Ecs.item_search('', {:brand => @electronics[i], :search_index => 'Electronics', :sort => 'salesrank'})[0..5].items.each do |item|
+    result = Amazon::Ecs.item_search('', {:brand => @electronics[i], :search_index => 'Electronics', :sort => 'salesrank'}).items.each do |item|
       @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
     end
-    result = Amazon::Ecs.item_search('', {:brand => @electronics[i], :search_index => 'PC Hardware', :sort => 'salesrank'})[0..5].items.each do |item|
+    result = Amazon::Ecs.item_search('', {:brand => @electronics[i], :search_index => 'PC Hardware', :sort => 'salesrank'}).items.each do |item|
       @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
     end
   end
   
   @apparel.each_with_index do |brand, i|
-    result = Amazon::Ecs.item_search('', {:brand => @apparel[i], :search_index => 'Apparel', :sort => 'salesrank'})[0..5].items.each do |item|
+    result = Amazon::Ecs.item_search('', {:brand => @apparel[i], :search_index => 'Apparel', :sort => 'salesrank'}).items.each do |item|
        @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
      end
   end 
