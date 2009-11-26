@@ -2,9 +2,9 @@ require 'rubygems'
 require 'sinatra'
 require 'erb'
 require 'amazon/ecs'
+require 'model'
 
 enable :sessions
-
 
 Amazon::Ecs.configure do |options|
   options[:aWS_access_key_id] = "1QW4DWZG84P8WNG78R02"
@@ -17,7 +17,8 @@ get '/' do
   erb :index
 end
 
-post '/give' do
+post '/calculate' do
+  Item.all(:session_id.eql => session_id).destroy!
   @authors = []
   @movies = []
   @bands = []
@@ -31,52 +32,65 @@ post '/give' do
   @apparel = params[:apparel].delete_if{|x| x.empty?} if params[:apparel]
   @household = params[:household].delete_if{|x| x.empty?} if params[:household]
   
-  @page = params[:page].to_i
-  @next_page = @page + 1
+
   @items = []
+  asins = []
   
   @authors.each_with_index do |book, i|
-    result = Amazon::Ecs.item_search('', {:author => @authors[i], :sort => 'salesrank'})
-    asin = result.items.first.get('asin')
-    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin}).each do |item|
-      next if item.get('itemattributes/author').to_s.downcase == result.items.first.get('author').to_s.downcase
-      @items << {:author => item.get('itemattributes/author'), :title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
-    end
+    author = Amazon::Ecs.item_search('', {:author => @authors[i], :sort => 'salesrank'})
+    asins << author.items.first.get('asin')
   end
 
   @movies.each_with_index do |movie, i|
     result = Amazon::Ecs.item_search('', {:title => @movies[i], :search_index => 'DVD', :sort => 'salesrank'})
-    asin = result.items.first.get('asin')
-    
-    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin}).items.each do |item|   
-      @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
-    end
+    asins << result.items.first.get('asin')
   end
 
   @bands.each_with_index do |band, i|
     result = Amazon::Ecs.item_search('', {:artist => @bands[i], :search_index => 'Music', :sort => 'salesrank'})
-    asin = result.items.first.get('asin')
-    Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asin}).items.each do |item|
-      next if item.get('itemattributes/artist').to_s.downcase == result.items.first.get('artist').to_s.downcase
-      @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl'), :artist => item.get('itemattributes/artist')}[0..5]
-    end
-  end
-
-  @electronics.each_with_index do |brand, i|
-    result = Amazon::Ecs.item_search('', {:brand => @electronics[i], :search_index => 'Electronics', :sort => 'salesrank'}).items.each do |item|
-      @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
-    end
-    result = Amazon::Ecs.item_search('', {:brand => @electronics[i], :search_index => 'PC Hardware', :sort => 'salesrank'}).items.each do |item|
-      @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
-    end
+    asins << result.items.first.get('asin')
   end
   
-  @apparel.each_with_index do |brand, i|
-    result = Amazon::Ecs.item_search('', {:brand => @apparel[i], :search_index => 'Apparel', :sort => 'salesrank'}).items.each do |item|
-       @items << {:title => item.get('itemattributes/title'), :url => item.get('detailpageurl')}
-     end
-  end 
-      
-  @item = @items.sort{rand}[@page]
+  Amazon::Ecs.send_request({:operation => 'SimilarityLookup', :item_id => asins.join(','), :similarity_type => 'Random'}).items.each do |item|
+    @items << {:asin => item.get('asin')}
+  end
+
+  @types = params[:type] || []
+  
+  @types.each do |node|
+    Amazon::Ecs.send_request(:operation => 'BrowseNodeLookup', :response_group => 'MostGifted', :browse_node_id => node).doc.search('topitemset/topitem') do |item|
+      @items << {:asin => item.at('asin').inner_html}        
+    end
+  end
+    
+  @items.sort{rand <=> rand}
+  
+  @items.each do |item|
+    @item = Amazon::Ecs.item_lookup(item[:asin], :response_group => 'Medium').first_item
+    Item.create!(:session_id => session_id, :title => @item.get('itemattributes/title'), :price => @item.get('itemattributes/listprice/formattedprice'), :url => @item.get('detailpageurl'), :author => @item.get('itemattributes/author'), :artist => @item.get('itemattributes/artist'), :asin => item['asin']) if @item
+  end
+
+  redirect '/give'
+end
+
+def env
+  env = Rack::Request.new(env)
+end
+  
+def session_id
+  env['rack.request.cookie_hash']["rack.session"]
+end
+
+get '/give' do
+  @page = params[:page].to_i
+  #raise @page.inspect
+  @next_page = @page + 1
+  @items = Item.all(:session_id.eql => session_id, :limit => 1, :offset => @page)
+  if Item.all(:session_id.eql => session_id).size == @page + 1 
+    @all_done = true
+  else
+    @all_done = false
+  end
+  @item = @items.first
   erb :give
 end

@@ -1,4 +1,4 @@
-<form action="give" method="post">
+<form action="calculate" method="post">
 
 <div style="background-color:#999;color:#fff;width:800px;padding:10px;text-align:center;font-size:34px;">fill in as much as you know about the person you're shopping for and we'll use our database to come up with the perfect gift</div>
 
@@ -7,8 +7,6 @@ table {width: 300px;}
 table th {font-size: 24px;font-weight:bold;color:#000;}
 table td {font-size: 18px;}
 </style>
-
-do they like apparel, electronics, or home accessories?
 
 <h2>What are some of their favorite authors?</h2>
 <table>
@@ -36,23 +34,14 @@ do they like apparel, electronics, or home accessories?
 <h2>What sort of things do they like shopping for?</h2>
 
 <table>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Apparel</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Electronics</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Kitchen</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Tools</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Sports</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Jewelry</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Food</td></tr>
-  <tr><td><input type="checkbox" name="type[]"></td><td>Travel</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="1036592"></td><td>Apparel</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="172282"></td><td>Electronics</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="13900821"></td><td>Kitchen</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="228013"></td><td>Tools</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="3375251"></td><td>Sports</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="3367581"></td><td>Jewelry</td></tr>
+  <tr><td><input type="checkbox" name="type[]" value="3370831"></td><td>Food</td></tr>
 </table>
-
-<h2>What is your price range?</h2>
-
-  <input type="radio" name="price">less than $25<br>
-  <input type="radio" name="price">$25 - $50<br>
-  <input type="radio" name="price">$50 - $150<br>
-  <input type="radio" name="price">$150 - $300<br>
-  <input type="radio" name="price">over $300<br>
 
 <input type="hidden" name="page" value="1">
 <p><input type="submit" value="Find the Perfect Gift"></p>
