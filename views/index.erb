@@ -1,21 +1,21 @@
-<div style="background-color: yellow;font-size:24;padding:10px;text-align:center;"><a href="http://spreadsheets.google.com/viewform?formkey=dDBDem5OcXpuVmJVOG1HUjd5b0NVd1E6MA">Please take our survey</a></div>
-<div style="width:1000px;">
+<div style="width:800px;">
+
 <form action="give" method="get">
   
 <style>
 body {font: helvetica;}
 table {width: 300px;}
 table th {font-size: 24px;font-weight:bold;color:#000;}
-table td {font-size: 22px;}
+table td {font-size: 18px;}
 </style>
 
 <h2>Describe the person you're shopping for with tags.  The more tags you enter the better your recommendation will be.</h2>
 
-<input type="text" name="tags" style="width: 1000px; font-size:34px;" value="boyfriend, mid-twenties, artistic, golfer"></textarea>
+<input type="text" name="tags" style="width: 800px; font-size:34px;" value="boyfriend, mid-twenties, artistic, golfer"></textarea>
 
 <h2>What sort of things do they like shopping for?</h2>
 
-<table style="width: 1000px;">
+<table style="width: 800px;">
   <tr>
     <td><input type="checkbox" name="type[]" value="283155" checked></td><td>Books</td>
     <td><input type="checkbox" name="type[]" value="130" checked></td><td>Movies & TV</td>
@@ -48,6 +48,7 @@ table td {font-size: 22px;}
 <p><input type="submit" value="Find the Perfect Gift"></p>
 </form>
 
+<hr>
 <h2>Recent Picks</h2>
 <div style="font-size:20px;">
 
@@ -55,7 +56,6 @@ table td {font-size: 22px;}
   A shopper picked <a href="<%= survey.item.url %>"><%= survey.item.title %></a> for someone tagged 
   <% survey.tag_list.each do |tag| %>
     <a href="/tags/<%= tag %>"><%= tag %></a>
-  
   <% end %>.
   <br />
   <br />
@@ -63,7 +63,17 @@ table td {font-size: 22px;}
 </div>
 
 
+
 </div>
 
 </span>
+</div>
+
+<div style="position:absolute;right:0;top:40;background-color:#eee;padding:40px;font-size:20px;">
+<h2>Top Tags</h2>
+
+<% @tags.each do |tag| %>
+
+<a href="/tags/<%= tag.name %>"><%= tag.name %></a><br>
+<% end %>
 </div>

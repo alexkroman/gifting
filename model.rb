@@ -18,6 +18,8 @@ class Item
   property :author,       String
   property :url,   String, :index => true
   property :price,  String, :index => true
+  
+  has n, :surveys
 end
 
 class Survey
@@ -26,7 +28,6 @@ class Survey
   validates_present :like
   property :id,         Integer, :serial => true
   property :like, Boolean
-  property :session_id, Text
   property :created_at, DateTime
   belongs_to :item
   has_tags

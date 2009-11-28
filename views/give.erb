@@ -13,14 +13,28 @@
 <%= @item.price %>  <br>
 <a href="/vote?asin=<%= @item.asin %>&amp;url=<%= @item.url %>" style="color:black;text-decoration:none;font-size:30px;background-color:pink;padding-left:40px;padding-right:40px;">buy on <b>Amazon.com</b></a>
 </div>
+
+<br /><br />
+
+<% if @good_tags.first %>
+This has been bought for people tagged as:
+<b><%= @good_tags.first.join(", ") %></b>
+<br />
+<% end %>
+
+<% if @bad_tags.first %>
+This has been skipped for people tagged as: 
+<b><%= @bad_tags.first.join(", ") %></b>
+
 <br><br>
+<% end %>
 
 <div style="">
   <form action="/vote">
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
   
 <input type="hidden" name="page" value="<%= @next_page %>" >
-<% if @all_done%>
+<% if @item_list.size - 1 == @page %>
   <span style="background-color: ccc;width:200px;padding:20px;font-weight:bold;">Oops, we don't have any more gifts to display</span>
 <% else %>
 <input type="submit" value="i don't think so, give me another gift"> 

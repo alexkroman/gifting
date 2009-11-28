@@ -1,11 +1,11 @@
 set :ssh_options, { :forward_agent => true }
 
-set :application, "damncheaphotels.com"
+set :application, "gifts.wazima.com"
 
 role :app, "alex"
 set :user, "alex"
 set :keep_releases, 2
-set :repository,  "ssh://alex/var/git/hotel.git"
+set :repository,  "ssh://alex/var/git/gifts.git"
 set :scm, :git
 set :branch, "master"
 set :deploy_via, :remote_cache
