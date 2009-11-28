@@ -13,7 +13,7 @@ set :deploy_via, :remote_cache
 set :deploy_to, "/var/www/#{application}"
 
 task :after_symlink do
-  run "ln -nfs #{shared_dir}/system/production.db #{release_dir}/production.db"
+  run "ln -nfs #{shared_dir}/system/production.db #{current_path}/production.db"
 end
 
 
