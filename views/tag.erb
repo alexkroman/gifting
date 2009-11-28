@@ -1,0 +1,8 @@
+<h2>Shoppers have shopped for the following items for people tagged <%= @tag %>
+
+<br />
+<br />
+
+<% @surveys.each do |survey| %>
+  <a href="<%= survey.item.url %>"><%= survey.item.title %></a><br><br>
+<% end %>
