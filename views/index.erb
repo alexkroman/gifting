@@ -1,48 +1,69 @@
-<form action="calculate" method="post">
 
-<div style="background-color:#999;color:#fff;width:800px;padding:10px;text-align:center;font-size:34px;">fill in as much as you know about the person you're shopping for and we'll use our database to come up with the perfect gift</div>
-
+<div style="width:1000px;">
+<form action="give" method="get">
+  
 <style>
+body {font: helvetica;}
 table {width: 300px;}
 table th {font-size: 24px;font-weight:bold;color:#000;}
-table td {font-size: 18px;}
+table td {font-size: 22px;}
 </style>
 
-<h2>What are some of their favorite authors?</h2>
-<table>
-  <tr><td><input type="text" name="author[]" size="40"></td></tr>
-  <tr><td><input type="text" name="author[]" size="40"></td></tr>
-  <tr><td><input type="text" name="author[]" size="40"></td></tr>
-</table>
+<h2>Describe the person you're shopping for with tags.  The more tags you enter the better your recommendation will be.</h2>
 
-<h2>What are some of their favorite movies?</h2>
-
-<table>
-  <tr><td><input type="text" name="movie[]" size="40"></td></tr>
-  <tr><td><input type="text" name="movie[]" size="40"></td></tr>
-  <tr><td><input type="text" name="movie[]" size="40"></td></tr>
-</table>
-
-<h2>What are some of their favorite musicians?</h2>
-
-<table>
-  <tr><td><input type="text" name="band[]" size="40"></td></tr>
-  <tr><td><input type="text" name="band[]" size="40"></td></tr>
-  <tr><td><input type="text" name="band[]" size="40"></td></tr>
-</table>
+<input type="text" name="tags" style="width: 1000px; font-size:34px;" value="boyfriend, mid-twenties, artistic, golfer"></textarea>
 
 <h2>What sort of things do they like shopping for?</h2>
 
-<table>
-  <tr><td><input type="checkbox" name="type[]" value="1036592"></td><td>Apparel</td></tr>
-  <tr><td><input type="checkbox" name="type[]" value="172282"></td><td>Electronics</td></tr>
-  <tr><td><input type="checkbox" name="type[]" value="13900821"></td><td>Kitchen</td></tr>
-  <tr><td><input type="checkbox" name="type[]" value="228013"></td><td>Tools</td></tr>
-  <tr><td><input type="checkbox" name="type[]" value="3375251"></td><td>Sports</td></tr>
-  <tr><td><input type="checkbox" name="type[]" value="3367581"></td><td>Jewelry</td></tr>
-  <tr><td><input type="checkbox" name="type[]" value="3370831"></td><td>Food</td></tr>
+<table style="width: 1000px;">
+  <tr>
+    <td><input type="checkbox" name="type[]" value="283155" checked></td><td>Books</td>
+    <td><input type="checkbox" name="type[]" value="130" checked></td><td>Movies & TV</td>
+    <td><input type="checkbox" name="type[]" value="5174" checked></td><td>Music</td>
+    <td><input type="checkbox" name="type[]" value="468642" checked></td><td>Video Games</td>
+    <td><input type="checkbox" name="type[]" value="229534" checked></td><td>Computer Software</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="type[]" value="1722821266092011" checked></td><td>TV & Video</td>
+    <td><input type="checkbox" name="type[]" value="667846011" checked></td><td>Home Audio & Theater</td>
+    <td><input type="checkbox" name="type[]" value="172630" checked></td><td>MP3 Players</td>
+    <td><input type="checkbox" name="type[]" value="1077068" checked></td><td>Car Electronics</td>
+    <td><input type="checkbox" name="type[]" value="361395011" checked></td><td>Home Appliances</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="type[]" value="284507" checked></td><td>Kitchen</td>
+    <td><input type="checkbox" name="type[]" value="1057794" checked></td><td>Furniture and Decor</td>
+    <td><input type="checkbox" name="type[]" value="12890711" checked></td><td>Craft and Hobby</td>
+    <td><input type="checkbox" name="type[]" value="1036592" checked></td><td>Apparel</td>
+    <td><input type="checkbox" name="type[]" value="228013" checked></td><td>Tools</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="type[]" value="3375251" checked></td><td>Sports</td>
+    <td><input type="checkbox" name="type[]" value="3367581" checked></td><td>Jewelry</td>
+    <td><input type="checkbox" name="type[]" value="3370831" checked></td><td>Food</td>
+  </tr>  
 </table>
 
 <input type="hidden" name="page" value="1">
 <p><input type="submit" value="Find the Perfect Gift"></p>
 </form>
+
+<h2>Recent Picks</h2>
+<div style="font-size:20px;">
+
+<% @surveys.each do |survey| %>
+  A shopper picked <a href="<%= survey.item.url %>"><%= survey.item.title %></a> for someone tagged 
+  <% survey.tags_to_array.each do |tag| %>
+    <a href="/tags/<%= tag %>"><%= tag %></a>
+  
+  <% end %>.
+  <br />
+  <br />
+<% end %>
+</div>
+
+
+</div>
+
+</span>
+</div>
