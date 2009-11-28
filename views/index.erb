@@ -1,4 +1,4 @@
-
+<div style="background-color: yellow;font-size:24;padding:10px;text-align:center;"><a href="http://spreadsheets.google.com/viewform?formkey=dDBDem5OcXpuVmJVOG1HUjd5b0NVd1E6MA">Please take our survey</a></div>
 <div style="width:1000px;">
 <form action="give" method="get">
   
@@ -44,7 +44,7 @@ table td {font-size: 22px;}
   </tr>  
 </table>
 
-<input type="hidden" name="page" value="1">
+<input type="hidden" name="page" value="0">
 <p><input type="submit" value="Find the Perfect Gift"></p>
 </form>
 
@@ -53,7 +53,7 @@ table td {font-size: 22px;}
 
 <% @surveys.each do |survey| %>
   A shopper picked <a href="<%= survey.item.url %>"><%= survey.item.title %></a> for someone tagged 
-  <% survey.tags_to_array.each do |tag| %>
+  <% survey.tag_list.each do |tag| %>
     <a href="/tags/<%= tag %>"><%= tag %></a>
   
   <% end %>.

@@ -21,7 +21,7 @@ def session_id
 end
 
 get '/' do
-  @surveys = Survey.all(:like => true, :order => [:created_at.desc])
+  @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 30)
   erb :index
 end
 
@@ -29,10 +29,6 @@ get '/give' do
   session[:type] = params[:type] if params[:type]
   if params[:tags]
     session[:tags] = params[:tags]
-    params[:tags].split(",").each do |tag|
-      #raise tag.inspect
-      Tag.create(:name => tag) unless Tag.get(tag)
-    end
   end
   @page = params[:page].to_i
   @next_page = @page + 1
@@ -40,15 +36,15 @@ get '/give' do
   asins = []
   @item_list = nil
   session[:tags].split(",").each do |tag|
-    @surveys = Survey.all(:tags.like => "%#{tag}%", :like => true)
+    @surveys = Survey.tagged_with(tag, :like => true)
     asins << @surveys.collect{|x| x.item.asin }
   end
   
-
-  @item_list = Item.all(:asin => asins.first)
-  @item_list = @item_list + Item.all(:category_id => session[:type]).sort{rand}
+  @item_list = Item.all(:asin => asins.first, :category_id => session[:type]).sort{rand}
+  asins = ['xxx'] if asins = []
+  @item_list = @item_list + Item.all(:category_id => session[:type], :asin.not => asins).sort{rand}
   @item = @item_list[@page]
-  
+
   if Item.all(:category_id => session[:type]).size == @page + 1 
     @all_done = true
   else
@@ -59,18 +55,17 @@ end
 
 get '/vote' do
   if params[:page]
-    @survey = Survey.new(:session_id => session_id, :tags => session[:tags], :item => Item.first(:asin => params[:asin]), :like => false)
-    @survey.save!
+    @survey = Survey.create(:tag_list => session[:tags], :session_id => session_id, :item => Item.first(:asin => params[:asin]), :like => false)    
+    #raise @survey.errors.inspect
     redirect '/give?page=' + params[:page] 
   else
-    @survey = Survey.new(:session_id => session_id, :tags => session[:tags], :item => Item.first(:asin => params[:asin]), :like => true)
-    @survey.save!
+    @survey = Survey.create(:tag_list => session[:tags], :session_id => session_id, :item => Item.first(:asin => params[:asin]), :like => true)    
     redirect params[:url]
   end
 end
 
 get '/tags/:tag' do
   @tag = params[:tag]
-  @surveys = Survey.all(:tags.like => "%#{params[:tag]}%", :like => true)
+  @surveys = Survey.tagged_with(@tag, :like => true)
   erb :tag
 end
