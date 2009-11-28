@@ -1,6 +1,6 @@
 require 'rake'
 require 'fileutils'
-require 'model'
+require 'amazon'
 require 'amazon/ecs'
 
 Amazon::Ecs.configure do |options|
