@@ -27,7 +27,7 @@ This has been bought for people tagged as:
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
   
 <input type="hidden" name="page" value="<%= @next_page %>" >
-<% if @item_list.size - 1 == @page %>
+<% if @item_list.size - 2 == @page %>
   <span style="background-color: ccc;width:200px;padding:20px;font-weight:bold;">Oops, we don't have any more gifts to display</span>
 <% else %>
 <input type="submit" value="i don't think so, give me another gift"> 

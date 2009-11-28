@@ -37,7 +37,6 @@ get '/give' do
   
   @item_list = Item.all(:asin => asins.first, :category_id => session[:type], :asin.not => session[:seen]).sort{rand}
   @item_list = @item_list + Item.all(:category_id => session[:type], :asin.not => asins, :asin.not => session[:seen]).sort{rand}
-    
   @item = @item_list[@page]
   session[:seen] << @item.asin
   redirect '/' unless @item
