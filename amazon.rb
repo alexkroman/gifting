@@ -34,8 +34,11 @@ get '/give' do
   
   @item_list = Item.all(:asin => asins.first, :category_id => session[:type]).sort{rand}
   @item_list = @item_list + Item.all(:category_id => session[:type], :asin.not => asins).sort{rand}
+    
   @item = @item_list[@page]
-  
+
+  redirect '/' unless @item
+
   @good_tags = []
   @item.surveys(:like => true).each do |survey|
     @good_tags << survey.tag_list
@@ -45,6 +48,7 @@ get '/give' do
   @item.surveys(:like => false).each do |survey|
     @bad_tags << survey.tag_list
   end
+  
   
   erb :give
 end
