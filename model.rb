@@ -4,7 +4,8 @@ require 'dm-timestamps'
 require 'dm-tags'
 
 DataMapper::Logger.new(STDOUT, :debug)
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/database.sqlite3")
+
+DataMapper.setup(:default, "sqlite3:///#{File.expand_path(File.dirname(__FILE__))}/#{Sinatra::Base.environment}.db")
 
 class Item
   include DataMapper::Resource

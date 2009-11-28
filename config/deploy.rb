@@ -5,7 +5,7 @@ set :application, "gifts.wazima.com"
 role :app, "alex"
 set :user, "alex"
 set :keep_releases, 2
-set :repository,  "ssh://alex/var/git/gifts.git"
+set :repository,  "ssh://alex/var/git/gift.git"
 set :scm, :git
 set :branch, "master"
 set :deploy_via, :remote_cache
