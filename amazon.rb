@@ -23,7 +23,10 @@ end
 
 get '/give' do
   session[:type] = params[:type] if params[:type]
-  session[:tags] = params[:tags] if params[:tags]
+  if params[:tags]
+    session[:tags] = params[:tags] 
+    session[:seen] = ['xxx']
+  end
   @page = params[:page].to_i and @next_page = @page + 1
   
   asins = []
@@ -32,23 +35,17 @@ get '/give' do
     asins << @surveys.collect{|x| x.item.asin }
   end
   
-  @item_list = Item.all(:asin => asins.first, :category_id => session[:type]).sort{rand}
-  @item_list = @item_list + Item.all(:category_id => session[:type], :asin.not => asins).sort{rand}
+  @item_list = Item.all(:asin => asins.first, :category_id => session[:type], :asin.not => session[:seen]).sort{rand}
+  @item_list = @item_list + Item.all(:category_id => session[:type], :asin.not => asins, :asin.not => session[:seen]).sort{rand}
     
   @item = @item_list[@page]
-
+  session[:seen] << @item.asin
   redirect '/' unless @item
 
   @good_tags = []
   @item.surveys(:like => true).each do |survey|
     @good_tags << survey.tag_list
   end
-  
-  @bad_tags = []
-  @item.surveys(:like => false).each do |survey|
-    @bad_tags << survey.tag_list
-  end
-  
   
   erb :give
 end

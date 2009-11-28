@@ -22,13 +22,6 @@ This has been bought for people tagged as:
 <br />
 <% end %>
 
-<% if @bad_tags.first %>
-This has been skipped for people tagged as: 
-<b><%= @bad_tags.first.join(", ") %></b>
-
-<br><br>
-<% end %>
-
 <div style="">
   <form action="/vote">
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
