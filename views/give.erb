@@ -1,5 +1,5 @@
 <div style="font-size:34px;background-color:#eee;padding:15px;">
-  You should get:
+  For someone tagged <b><%= session[:tags] %></b> you should get:
   
 </div>
 
@@ -11,23 +11,17 @@
 <% if @item.author %> by <%= @item.author %><% end %> 
 <% if @item.artist %> by <%= @item.artist %><% end %></b>
 <%= @item.price %>  <br>
-<a href="/vote?asin=<%= @item.asin %>&amp;url=<%= @item.url %>" style="color:black;text-decoration:none;font-size:30px;background-color:pink;padding-left:40px;padding-right:40px;">buy on <b>Amazon.com</b></a>
+<a href="/vote?asin=<%= @item.asin %>&amp;url=<%= @item.url %>" style="color:black;text-decoration:none;font-size:30px;background-color:pink;padding-left:40px;padding-right:40px;">find on <b>Amazon.com</b></a>
 </div>
 
 <br /><br />
 
-<% if @good_tags.first %>
-This has been bought for people tagged as:
-<b><%= @good_tags.first.join(", ") %></b>
-<br />
-<% end %>
-
 <div style="">
   <form action="/vote">
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
+    <input type="hidden" name="like" value="true" >
   
-<input type="hidden" name="page" value="<%= @next_page %>" >
-<% if @item_list.size - 2 == @page %>
+<% if @item_list.size == 1 %>
   <span style="background-color: ccc;width:200px;padding:20px;font-weight:bold;">Oops, we don't have any more gifts to display</span>
 <% else %>
 <input type="submit" value="i don't think so, give me another gift"> 

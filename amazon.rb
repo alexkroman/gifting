@@ -22,7 +22,6 @@ get '/' do
 end
 
 get '/give' do
-  session[:type] = params[:type] if params[:type]
   if params[:tags]
     session[:tags] = params[:tags] 
     session[:seen] = ['xxx']
@@ -34,27 +33,22 @@ get '/give' do
     @surveys = Survey.tagged_with(tag, :like => true)
     asins << @surveys.collect{|x| x.item.asin }
   end
-  
-  @item_list = Item.all(:asin => asins.first, :category_id => session[:type], :asin.not => session[:seen]).sort{rand}
-  @item_list = @item_list + Item.all(:category_id => session[:type], :asin.not => asins, :asin.not => session[:seen]).sort{rand}
-  @item = @item_list[@page]
+  @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen]).sort{rand <=> rand}
+  @item_list = @item_list + Item.all(:asin.not => asins, :asin.not => session[:seen]).sort{rand <=> rand}
+  @item = @item_list.first
   session[:seen] << @item.asin
   redirect '/' unless @item
 
-  @good_tags = []
-  @item.surveys(:like => true).each do |survey|
-    @good_tags << survey.tag_list
-  end
   
   erb :give
 end
 
 get '/vote' do
-  if params[:page]
-    @survey = Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => false)    
-    redirect '/give?page=' + params[:page] 
+  if params[:like]
+    Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => false)    
+    redirect '/give' 
   else
-    @survey = Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => true)    
+    Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => true)    
     redirect params[:url]
   end
 end
