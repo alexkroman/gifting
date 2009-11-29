@@ -7,7 +7,7 @@ body {font: 18px helvetica;}
 table {width: 300px;}
 table th {font-size: 24px;font-weight:bold;color:#000;}
 table td {font-size: 18px;}
-h2 {margin-bottom:0;}
+h2 {margin-bottom:5;}
 </style>
 
 <div style="background-color: #777;color:#fff;padding:20px;width:850px;margin-bottom:10px;font-size:24px;">
@@ -48,5 +48,5 @@ h2 {margin-bottom:0;}
 
 <% @tags.each do |tag| %>
 
-<a href="/tags/<%= tag.name %>"><%= tag.name %></a><br>
+<a href="/tags/<%= tag.name %>"><%= tag.name %></a>
 <% end %>
