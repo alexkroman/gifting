@@ -6,15 +6,6 @@ require 'model'
 
 enable :sessions
 
-Amazon::Ecs.configure do |options|
-  options[:aWS_access_key_id] = "1QW4DWZG84P8WNG78R02"
-  options[:aWS_secret_key] = "VdN92FTHaCefD/PA4dKnhVB2fEYpRadQDB+vCp3i"
-end
-
-def session_id
-  env["rack.request.cookie_hash"]["rack.session"]
-end
-
 get '/' do
   @tags = Tag.all
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 30)
@@ -38,8 +29,6 @@ get '/give' do
   @item = @item_list.first
   session[:seen] << @item.asin
   redirect '/' unless @item
-
-  
   erb :give
 end
 
