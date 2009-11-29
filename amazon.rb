@@ -7,7 +7,8 @@ require 'model'
 enable :sessions
 
 get '/' do
-  @tags = Tag.all
+
+  @tags = Tag.all.sort! { |a,b| a.taggables.size <=> b.taggables.size }.reverse[0..20]
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 30)
   erb :index
 end
