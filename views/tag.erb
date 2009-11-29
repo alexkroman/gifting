@@ -3,6 +3,12 @@
 <br />
 <br />
 
+<div style="font-size:20px;line-height:1.8em;width:1000px;">
+
 <% @surveys.each do |survey| %>
-  <a href="<%= survey.item.url %>"><%= survey.item.title %></a><br><br>
+  <a href="<%= survey.item.url %>"><%= survey.item.title %></a> for someone tagged 
+  <% survey.tag_list.each do |tag| %>
+    <a href="/tags/<%= tag %>"><%= tag %></a><% end %>.
+  <br />
 <% end %>
+</div>

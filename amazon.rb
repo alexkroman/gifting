@@ -44,6 +44,6 @@ end
 
 get '/tags/:tag' do
   @tag = params[:tag]
-  @surveys = Survey.tagged_with(@tag, :like => true)
+  @surveys = Survey.tagged_with(@tag, :like => true, :unique => true)
   erb :tag
 end
