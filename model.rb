@@ -18,6 +18,11 @@ class Item
   property :url,   String
   property :price,  String
   has n, :surveys
+  
+  def referral_url
+    url + '&amp;tag=scriptfurnace-20'
+  end
+  
 end
 
 class Survey
