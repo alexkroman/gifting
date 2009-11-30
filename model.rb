@@ -20,7 +20,7 @@ class Item
   has n, :surveys
   
   def referral_url
-    url + '&amp;tag=scriptfurnace-20'
+    url
   end
   
 end
