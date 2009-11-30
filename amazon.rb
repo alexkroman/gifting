@@ -7,8 +7,7 @@ require 'model'
 enable :sessions
 
 get '/' do
-
-  @tags = Tag.all.sort! { |a,b| a.taggables.size <=> b.taggables.size }.reverse[0..20]
+  @tags = Tag.all
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 30)
   erb :index
 end
@@ -34,13 +33,13 @@ get '/give' do
 end
 
 get '/vote' do
-  if params[:like]
+  if params[:submit] == "i don't like this"
     Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => false)    
-    redirect '/give' 
-  else
+  elsif params[:submit] == 'i like this'
     Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => true)    
-    redirect params[:url]
+    redirect params[:url] if params[:url]
   end
+  redirect '/give' 
 end
 
 get '/tags/:tag' do

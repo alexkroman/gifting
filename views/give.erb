@@ -24,7 +24,9 @@
 <% if @item_list.size == 1 %>
   <span style="background-color: ccc;width:200px;padding:20px;font-weight:bold;">Oops, we don't have any more gifts to display</span>
 <% else %>
-<input type="submit" value="i don't think so, give me another gift"> 
+<input type="submit" name="submit" value="i don't like this"> 
+or
+<input type="submit" name="submit" value="i like this"> 
 or
 <% end %>
 <a href="/"><input type="button" value="start over"></a>
