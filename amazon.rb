@@ -33,9 +33,9 @@ get '/give' do
 end
 
 get '/vote' do
-  if params[:submit] == "i don't like this"
+  if params[:submit] == "i don't want to get this"
     Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => false)    
-  elsif params[:submit] == 'i like this'
+  elsif params[:submit] == 'i might get this'
     Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => true)    
     redirect params[:url] if params[:url]
   end
