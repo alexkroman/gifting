@@ -24,8 +24,8 @@ get '/give' do
     @surveys = Survey.tagged_with(tag, :like => true)
     asins << @surveys.collect{|x| x.item.asin }
   end
-  @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen]).sort{rand <=> rand}
-  @item_list = @item_list + Item.all(:asin.not => asins, :asin.not => session[:seen]).sort{rand <=> rand}
+  @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen]).sort{|a,b| a.surveys.all(:like => true).size - a.surveys.all(:like => false).size <=> b.surveys.all(:like => true).size - b.surveys.all(:like => false).size}
+  @item_list = @item_list + Item.all(:asin.not => asins, :asin.not => session[:seen]).sort{|a,b| a.surveys.all(:like => true).size - a.surveys.all(:like => false).size <=> b.surveys.all(:like => true).size - b.surveys.all(:like => false).size}
   @item = @item_list.first
   session[:seen] << @item.asin
   redirect '/' unless @item
