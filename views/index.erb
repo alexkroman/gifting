@@ -1,6 +1,6 @@
 <div style="width:800px;">
 
-<form action="give" method="get">
+<form action="search" method="get">
   
 <style>
 body {font: 18px helvetica;}
@@ -11,7 +11,7 @@ h2 {margin-bottom:5;}
 </style>
 
 <div style="background-color: #777;color:#fff;padding:20px;width:850px;margin-bottom:10px;font-size:24px;">
-<b>What is this?</b> <span style="font-size:20px;">It's like Pandora for Shopping.</span>
+<b>Gift Ideas</b> <span style="font-size:20px;">It's like Pandora for Shopping.</span>
 </div>
 
 <div style="background-color: #eee;padding:20px;width:850px;">
@@ -30,14 +30,12 @@ h2 {margin-bottom:5;}
 <div style="font-size:20px;line-height:1.8em;width:1000px;">
 
 <% @surveys.each do |survey| %>
-  <a href="<%= survey.item.referral_url %>"><%= survey.item.title %></a> for someone tagged 
+  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.tag_list.join(', ') %>"><%= survey.item.title %></a> for someone tagged 
   <% survey.tag_list.each do |tag| %>
-    <a href="/tags/<%= tag %>"><%= tag %></a><% end %>.
+    <a href="/search?tags=<%= tag %>"><%= tag %></a><% end %>.
   <br />
 <% end %>
 </div>
-
-
 
 </div>
 

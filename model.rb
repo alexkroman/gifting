@@ -22,6 +22,7 @@ class Item
   def referral_url
     url
   end
+
   
 end
 

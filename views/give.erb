@@ -1,6 +1,5 @@
 <div style="font-size:34px;background-color:#eee;padding:15px;">
   For someone tagged <b><%= session[:tags] %></b> you should get:
-  
 </div>
 
 <br>
@@ -10,8 +9,8 @@
 <%= @item.title %> 
 <% if @item.author %> by <%= @item.author %><% end %> 
 <% if @item.artist %> by <%= @item.artist %><% end %></b>
-<%= @item.price %>  <br>
-<a href="<%= @item.referral_url %>" style="color:black;text-decoration:none;font-size:30px;background-color:pink;padding-left:40px;padding-right:40px;">more details on <b>Amazon.com</b></a>
+<%= @item.price %>
+<a href="<%= @item.referral_url %>" style="color:black;text-decoration:none;font-size:30px;background-color:pink;padding-left:40px;padding-right:40px;">more info</a>
 </div>
 
 <br /><br />
@@ -21,7 +20,7 @@
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
     <input type="hidden" name="like" value="true" >
   
-<% if @item_list.size == 1 %>
+<% if @remaining == 1 %>
   <span style="background-color: ccc;width:200px;padding:20px;font-weight:bold;">Oops, we don't have any more gifts to display</span>
 <% else %>
 <input type="submit" name="submit" value="i don't want to get this"> 
