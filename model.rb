@@ -2,6 +2,8 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-timestamps'
 require 'dm-tags'
+require 'open-uri'
+require 'cgi'
 
 DataMapper::Logger.new(STDOUT, :debug)
 
@@ -20,10 +22,9 @@ class Item
   has n, :surveys
   
   def referral_url
-    url
+    CGI.unescape(url).sub('=ws','=scriptfurnace-20')
   end
 
-  
 end
 
 class Survey
