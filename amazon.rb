@@ -11,7 +11,7 @@ def cache_control
 end
 
 get '/' do
-  @tags = Tag.all.sort{|a,b| a.taggables.size <=> b.taggables.size}.reverse[0..16]
+  @tags = Tag.all.sort{|a,b| a.taggables.count <=> b.taggables.count}.reverse[0..16]
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 20)
   erb :index
 end
