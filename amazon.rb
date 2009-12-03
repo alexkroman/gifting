@@ -39,7 +39,7 @@ get '/search' do
     asins << @surveys.collect{|x| x.item.asin }
   end
   @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen])
-  @item_list = sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
+  @item_list = sort_by_magic(@item_list) + sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
   @item = @item_list.first
   session[:remaining] = @item_list.size
   redirect '/give/' + @item.asin
