@@ -28,7 +28,7 @@ def do_tags
 end
 
 def sort_by_magic(collection)
-    collection.sort{|a,b| (a.surveys.all(:like => true).size - a.surveys.all(:like => false).size * 0.25) <=> (b.surveys.all(:like => true).size - a.surveys.all(:like => false).size * 0.25)}.reverse
+    collection.sort{|a,b| a.score <=> b.score }.reverse
 end
 
 get '/search' do

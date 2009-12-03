@@ -39,7 +39,7 @@ h2 {margin-bottom:5;}
 <div style="font-size:20px;line-height:1.8em;width:1000px;">
 
 <% @surveys.each do |survey| %>
-  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.tag_list.join(', ') %>"><%= survey.item.title %></a> for someone tagged 
+  <%= survey.item.score %> <a href="/give/<%= survey.item.asin %>?tags=<%= survey.tag_list.join(', ') %>"><%= survey.item.title %></a> for someone tagged 
   <% survey.tag_list.each do |tag| %>
     <a href="/search?tags=<%= tag %>"><%= tag %></a><% end %>.
   <br />
