@@ -11,7 +11,11 @@ def cache_control
 end
 
 get '/' do
-  @tags = Tag.all.sort{|a,b| a.taggables.size <=> b.taggables.size}.reverse[0..16]
+  @tags = repository(:default).adapter.query("SELECT tags.*, COUNT(tags.id) AS tags_count FROM tags
+  INNER JOIN taggings ON tags.id = taggings.tag_id
+  INNER JOIN surveys ON taggings.taggable_id = surveys.id
+  WHERE surveys.like = 't'
+  GROUP BY tags.id ORDER BY tags_count DESC LIMIT 15")
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 20)
   erb :index
 end
