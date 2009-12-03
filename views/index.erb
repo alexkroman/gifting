@@ -26,6 +26,15 @@ h2 {margin-bottom:5;}
 </form>
 </div>
 
+<h2>Top Tags</h2>
+
+<span style="font-size:22px;">
+<% @tags.each do |tag| %>
+
+<a href="/tags/<%= tag.name %>"><%= tag.name %></a>
+<% end %>
+</span>
+
 <h2>Recent Picks</h2>
 <div style="font-size:20px;line-height:1.8em;width:1000px;">
 
@@ -42,9 +51,3 @@ h2 {margin-bottom:5;}
 </span>
 </div>
 
-<h2>Top Tags</h2>
-
-<% @tags.each do |tag| %>
-
-<a href="/tags/<%= tag.name %>"><%= tag.name %></a>
-<% end %>

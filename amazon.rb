@@ -6,8 +6,12 @@ require 'model'
 
 enable :sessions
 
+def cache_control
+  headers['Cache-Control'] = 'max-age=900, public'
+end
+
 get '/' do
-  @tags = Tag.all
+  @tags = Tag.all.sort{|a,b| a.taggables.size <=> b.taggables.size}.reverse[0..16]
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 20)
   erb :index
 end
