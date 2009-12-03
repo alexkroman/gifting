@@ -27,6 +27,10 @@ def do_tags
   end
 end
 
+def sort_by_magic(collection)
+    collection.sort{|a,b| (a.surveys.all(:like => true).size - a.surveys.all(:like => false).size * 0.25) <=> (b.surveys.all(:like => true).size - a.surveys.all(:like => false).size * 0.25)}.reverse
+end
+
 get '/search' do
   do_tags
   asins = []
@@ -34,8 +38,8 @@ get '/search' do
     @surveys = Survey.tagged_with(tag, :like => true)
     asins << @surveys.collect{|x| x.item.asin }
   end
-  @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen]).sort{|a,b| a.surveys.all(:like => true).size <=> b.surveys.all(:like => true).size}.reverse
-  @item_list = @item_list + Item.all(:asin.not => asins, :asin.not => session[:seen]).sort{|a,b| a.surveys.all(:like => true).size <=> b.surveys.all(:like => true).size}.reverse
+  @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen])
+  @item_list = sort_by_magic(@item_list) + sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
   @item = @item_list.first
   session[:remaining] = @item_list.size
   redirect '/give/' + @item.asin
