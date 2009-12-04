@@ -27,11 +27,16 @@ def do_tags
   end
 end
 
+def sort_by_score(collection)
+    collection.sort{|a,b| a.score <=> b.score }.reverse
+end
+
 def sort_by_magic(collection)
-    collection = collection.sort{|a,b| a.score <=> b.score }.reverse
-    first_ten = (collection.size * 0.20).floor
-    random = collection[0..first_ten].sort{|a,b| rand(2) <=> rand(2)}
-    collection = random + collection[first_ten..collection.length]
+  collection = sort_by_score(collection)
+  top_ten = (collection.size * 0.10).floor
+  top_results = collection[0..top_ten]
+  bottom_results = collection[top_ten..collection.size].sort{|a,b| a.skips <=> b.skips}.reverse
+  top_results + bottom_results
 end
 
 get '/search' do
@@ -44,7 +49,7 @@ get '/search' do
     end
   end
   @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen])
-  @item_list = sort_by_magic(@item_list) + sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
+  @item_list = sort_by_score(@item_list) + sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
   @item = @item_list.first
   session[:remaining] = @item_list.size
   redirect '/give/' + @item.asin

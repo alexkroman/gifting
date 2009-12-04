@@ -28,6 +28,10 @@ class Item
   def score
     surveys(:like => true).size - (surveys(:like => false).size * 0.25)
   end
+  
+  def skips
+    surveys(:like => false).size
+  end
 
 end
 
