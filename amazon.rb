@@ -23,20 +23,25 @@ end
 def do_tags
   if params[:tags]
     session[:tags] = params[:tags] 
-    session[:seen] = ['xxx']
+    session[:seen] = ''
   end
 end
 
 def sort_by_magic(collection)
-    collection.sort{|a,b| a.score <=> b.score }.reverse
+    collection = collection.sort{|a,b| a.score <=> b.score }.reverse
+    first_ten = (collection.size * 0.20).floor
+    random = collection[0..first_ten].sort{|a,b| rand(2) <=> rand(2)}
+    collection = random + collection[first_ten..collection.length]
 end
 
 get '/search' do
   do_tags
   asins = []
   session[:tags].split(",").each do |tag|
-    @surveys = Survey.tagged_with(tag, :like => true)
-    asins << @surveys.collect{|x| x.item.asin }
+    if Tag.first(:name => tag)
+      @surveys = Survey.tagged_with(tag, :like => true) 
+      asins << @surveys.collect{|x| x.item.asin }
+    end
   end
   @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen])
   @item_list = sort_by_magic(@item_list) + sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
@@ -48,7 +53,7 @@ end
 get '/give/:asin' do
   do_tags
   @remaining = session[:remaining]
-  @item = Item.get(params[:asin])  
+  @item = Item.first(:asin => params[:asin])  
   session[:seen] << @item.asin
   redirect '/' unless @item
   erb :give

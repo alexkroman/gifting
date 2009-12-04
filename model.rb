@@ -34,7 +34,7 @@ end
 class Survey
   include DataMapper::Resource
   validates_present :like
-  property :id,         Integer, :serial => true
+  property :id,         Serial
   property :like, Boolean, :index => true
   property :created_at, DateTime
   belongs_to :item
