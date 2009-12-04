@@ -23,12 +23,15 @@ end
 def do_tags
   if params[:tags]
     session[:tags] = params[:tags] 
-    session[:seen] = ''
+    session[:seen] = ['xxx']
   end
 end
 
 def sort_by_magic(collection)
-  collection.sort{|a,b| a.score <=> b.score }.reverse
+    collection = collection.sort{|a,b| a.score <=> b.score }.reverse
+    first_ten = (collection.size * 0.20).floor
+    random = collection[0..first_ten].sort{|a,b| rand(2) <=> rand(2)}
+    collection = random + collection[first_ten..collection.length]
 end
 
 get '/search' do
