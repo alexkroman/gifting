@@ -28,10 +28,7 @@ def do_tags
 end
 
 def sort_by_magic(collection)
-    collection = collection.sort{|a,b| a.score <=> b.score }.reverse
-    first_ten = (collection.size * 0.20).floor
-    random = collection[0..first_ten].sort{|a,b| rand(2) <=> rand(2)}
-    collection = random + collection[first_ten..collection.length]
+  collection.sort{|a,b| a.score <=> b.score }.reverse
 end
 
 get '/search' do
