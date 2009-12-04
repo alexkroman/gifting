@@ -21,24 +21,15 @@ get '/' do
 end
 
 def do_tags
-  if params[:tags]
+  if params[:start_over]
     session[:tags] = params[:tags] 
-    session[:seen] = ['xxx']
+    session[:seen] = ['--empty--']
   end
 end
 
-def sort_by_score(collection)
-    collection.sort{|a,b| a.score <=> b.score }.reverse
+def sort_by_random(collection)
+    collection.sort{|a,b| rand <=> rand }
 end
-
-def sort_by_magic(collection)
-  collection = sort_by_score(collection)
-  top_ten = (collection.size * 0.10).floor
-  top_results = collection[0..top_ten]
-  bottom_results = collection[top_ten..collection.size].sort{|a,b| a.skips <=> b.skips}.reverse
-  top_results + bottom_results
-end
-
 get '/search' do
   do_tags
   asins = []
@@ -47,12 +38,13 @@ get '/search' do
       @surveys = Survey.tagged_with(tag, :like => true) 
       asins << @surveys.collect{|x| x.item.asin }
     end
+    asins.uniq!
   end
-  @item_list = Item.all(:asin => asins.first, :asin.not => session[:seen])
-  @item_list = sort_by_score(@item_list) + sort_by_magic(Item.all(:asin.not => asins, :asin.not => session[:seen]))
+  @item_list = sort_by_random(Item.all(:asin => asins.first, :asin.not => session[:seen]))
+  @item_list += sort_by_random(Item.all(:asin.not => asins, :asin.not => session[:seen]))
   @item = @item_list.first
   session[:remaining] = @item_list.size
-  redirect '/give/' + @item.asin
+  redirect '/give/' + @item.asin + '?tags=' + session[:tags]
 end
 
 get '/give/:asin' do

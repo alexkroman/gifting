@@ -24,14 +24,6 @@ class Item
   def referral_url
     CGI.unescape(url).sub('=ws','=scriptfurnace-20')
   end
-  
-  def score
-    surveys(:like => true).size - (surveys(:like => false).size * 0.25)
-  end
-  
-  def skips
-    surveys(:like => false).size
-  end
 
 end
 
