@@ -42,9 +42,9 @@ get '/search' do
       bad_asins << @surveys.collect{|x| x.item.asin }
     end
   end
-  @item_list = sort_by_random(Item.all(:asin.in => good_asins.first, :asin.not => session[:seen]))
-  @item_list += sort_by_random(Item.all(:asin.not => good_asins.first, :asin.not => bad_asins.first, :asin.not => session[:seen]))
-  @item_list += sort_by_random(Item.all(:asin.in => bad_asins.first, :asin.not => session[:seen]))
+  @item_list = sort_by_random(Item.all(:asin.in => good_asins[1], :asin.not => session[:seen]))
+  @item_list += sort_by_random(Item.all(:asin.not => good_asins[1], :asin.not => bad_asins[1], :asin.not => session[:seen]))
+  @item_list += sort_by_random(Item.all(:asin.in => bad_asins[1], :asin.not => session[:seen]))
   @item = @item_list.uniq.first
   redirect '/' unless @item
   redirect '/give/' + @item.asin + '?tags=' + params[:tags]
