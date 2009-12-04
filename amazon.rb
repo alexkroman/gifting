@@ -22,29 +22,30 @@ end
 
 def start_over
   if params[:so]
-    session[:seen] = ['--empty--']    
+    session[:seen] = ['xxx']    
   end
 end
 
 def sort_by_random(collection)
-    collection.sort{|a,b| rand <=> rand }
+    collection.sort{|a,b| rand(srand) <=> rand(srand) }
 end
 
 get '/search' do
   start_over
-  good_asins = ['xxx']
-  bad_asins = ['xxx']
+  good_asins = []
+  bad_asins = []
   params[:tags].split(",").each do |tag|
     if Tag.first(:name => tag)
       @surveys = Survey.tagged_with(tag, :like => true) 
-      good_asins << @surveys.collect{|x| x.item.asin }
+      good_asins |= @surveys.collect{|x| x.item.asin }
       @surveys = Survey.tagged_with(tag, :like => false) 
-      bad_asins << @surveys.collect{|x| x.item.asin }
+      bad_asins |= @surveys.collect{|x| x.item.asin }
     end
   end
-  @item_list = sort_by_random(Item.all(:asin.in => good_asins[1], :asin.not => session[:seen]))
-  @item_list += sort_by_random(Item.all(:asin.not => good_asins[1], :asin.not => bad_asins[1], :asin.not => session[:seen]))
-  @item_list += sort_by_random(Item.all(:asin.in => bad_asins[1], :asin.not => session[:seen]))
+  
+  @item_list = sort_by_random(Item.all(:asin.in => good_asins, :asin.not => session[:seen]))
+  @item_list |= sort_by_random(Item.all(:asin.not => good_asins + bad_asins + session[:seen]))
+  @item_list |= sort_by_random(Item.all(:asin.in => bad_asins, :asin.not => session[:seen]))
   @item = @item_list.uniq.first
   redirect '/' unless @item
   redirect '/give/' + @item.asin + '?tags=' + params[:tags]
