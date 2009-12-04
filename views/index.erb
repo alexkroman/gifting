@@ -2,36 +2,32 @@
 
 <form action="search" method="get">
   
-<style>
-body {font: 18px helvetica;}
-table {width: 300px;}
-table th {font-size: 24px;font-weight:bold;color:#000;}
-table td {font-size: 18px;}
-h2 {margin-bottom:5;}
-</style>
+
 
 <div style="background-color: #777;color:#fff;padding:20px;width:850px;margin-bottom:10px;font-size:24px;">
 <b style="font-size:32px;">gifts.alexkroman.com</b> <span style="font-size:20px;">It's like Pandora for Shopping.</span>
 </div>
 
 <div style="background-color: #eee;padding:20px;width:850px;">
+
 <span style="font-size:22px;">Describe the person you're shopping for with tags.  The more you use it the better your recommendation will be.</span>
 
 <br /><br />
 
-<input type="text" name="tags" style="width: 800px; font-size:34px;" value="boyfriend, mid-twenties, artistic, golfer"></textarea>
+<input type="text" name="tags" style="width: 800px; font-size:34px;" value="boyfriend, mid-twenties, artistic, golfer" />
 
-<input type="hidden" name="start_over" value="1">
-<p style="text-align:center;"><input type="submit" value="Start looking for the perfect gift"></p>
-</form>
+<input type="hidden" name="start_over" value="1" />
+<p style="text-align:center;"><input type="submit" value="Start looking for the perfect gift" /></p>
 </div>
+
+
+</form>
 
 <h2>Top Tags</h2>
 
 <span style="font-size:22px;">
 <% @tags.each do |tag| %>
-
-<a href="/search?tags=<%= tag.name %>"><%= tag.name %></a>
+  <a href="/search?tags=<%= tag.name %>&so=1"><%= tag.name %></a>
 <% end %>
 </span>
 
@@ -39,24 +35,13 @@ h2 {margin-bottom:5;}
 <div style="font-size:20px;line-height:1.8em;width:1000px;">
 
 <% @surveys.each do |survey| %>
-  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.tag_list.join(', ') %>"><%= survey.item.title %></a> for someone tagged 
+  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.tag_list.join(', ') %>&so=1"><%= survey.item.title %></a> for someone tagged 
   <% survey.tag_list.each do |tag| %>
-    <a href="/search?tags=<%= tag %>"><%= tag %></a><% end %>.
+    <a href="/search?tags=<%= tag %>&so=1"><%= tag %></a><% end %>.
   <br />
 <% end %>
 </div>
 
 </div>
 
-</span>
-</div>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-173596-10");
-pageTracker._trackPageview();
-} catch(err) {}</script>

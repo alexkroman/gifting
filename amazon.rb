@@ -20,20 +20,20 @@ get '/' do
   erb :index
 end
 
-def do_tags
-  if params[:start_over]
-    session[:tags] = params[:tags] 
-    session[:seen] = ['--empty--']
+def start_over
+  if params[:so]
+    session[:seen] = ['--empty--']    
   end
 end
 
 def sort_by_random(collection)
     collection.sort{|a,b| rand <=> rand }
 end
+
 get '/search' do
-  do_tags
+  start_over
   asins = []
-  session[:tags].split(",").each do |tag|
+  params[:tags].split(",").each do |tag|
     if Tag.first(:name => tag)
       @surveys = Survey.tagged_with(tag, :like => true) 
       asins << @surveys.collect{|x| x.item.asin }
@@ -43,25 +43,26 @@ get '/search' do
   @item_list = sort_by_random(Item.all(:asin => asins.first, :asin.not => session[:seen]))
   @item_list += sort_by_random(Item.all(:asin.not => asins, :asin.not => session[:seen]))
   @item = @item_list.first
-  session[:remaining] = @item_list.size
-  redirect '/give/' + @item.asin + '?tags=' + session[:tags]
+  redirect '/give/' + @item.asin + '?tags=' + params[:tags]
 end
 
 get '/give/:asin' do
-  do_tags
-  @remaining = session[:remaining]
+  start_over
   @item = Item.first(:asin => params[:asin])  
-  session[:seen] << @item.asin
   redirect '/' unless @item
+  session[:seen] << @item.asin
   erb :give
 end
 
 get '/vote' do
   if params[:submit] == "i don't want to get this"
-    Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => false)    
-  elsif params[:submit] == 'i might get this'
-    Survey.create(:tag_list => session[:tags], :item => Item.first(:asin => params[:asin]), :like => true)    
-    redirect params[:url] if params[:url]
+    create_survey(false)
+  else
+    create_survey(true)
   end
-  redirect '/search' 
+  redirect '/search?tags=' + params[:tags] 
+end
+
+def create_survey(like)
+  Survey.create(:tag_list => params[:tags], :item => Item.first(:asin => params[:asin]), :like => like)    
 end

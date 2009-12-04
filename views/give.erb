@@ -16,29 +16,17 @@
 <br /><br />
 
 <div style="">
-  <form action="/vote">
+  <form action="/vote" method="get">
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
     <input type="hidden" name="like" value="true" >
+    <input type="hidden" name="tags" value="<%= params[:tags] %>" >
   
-<% if @remaining == 1 %>
-  <span style="background-color: ccc;width:200px;padding:20px;font-weight:bold;">Oops, we don't have any more gifts to display</span>
-<% else %>
 <input type="submit" name="submit" value="i don't want to get this"> 
 or
 <input type="submit" name="submit" value="i might get this"> 
 or
-<% end %>
 <a href="/"><input type="button" value="start over"></a>
   </form>
   
 </div>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-173596-10");
-pageTracker._trackPageview();
-} catch(err) {}</script>
