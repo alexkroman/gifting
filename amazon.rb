@@ -43,9 +43,9 @@ get '/search' do
     end
   end
   @item_list = sort_by_random(Item.all(:asin.in => good_asins.first, :asin.not => session[:seen]))
-  @item_list += sort_by_random(Item.all(:asin.not => good_asins.first, :asin.not => bad_asins, :asin.not => session[:seen]))
+  @item_list += sort_by_random(Item.all(:asin.not => good_asins.first, :asin.not => bad_asins.first, :asin.not => session[:seen]))
   @item_list += sort_by_random(Item.all(:asin.in => bad_asins.first, :asin.not => session[:seen]))
-  @item = @item_list.first
+  @item = @item_list.uniq.first
   redirect '/' unless @item
   redirect '/give/' + @item.asin + '?tags=' + params[:tags]
 end
