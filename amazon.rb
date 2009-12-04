@@ -32,16 +32,20 @@ end
 
 get '/search' do
   start_over
-  asins = []
+  good_asins = []
+  bad_asins = []
   params[:tags].split(",").each do |tag|
     if Tag.first(:name => tag)
       @surveys = Survey.tagged_with(tag, :like => true) 
-      asins << @surveys.collect{|x| x.item.asin }
+      good_asins << @surveys.collect{|x| x.item.asin }
+      @surveys = Survey.tagged_with(tag, :like => false) 
+      bad_asins << @surveys.collect{|x| x.item.asin }
     end
-    asins.uniq!
+    good_asins.uniq!
   end
-  @item_list = sort_by_random(Item.all(:asin => asins.first, :asin.not => session[:seen]))
-  @item_list += sort_by_random(Item.all(:asin.not => asins, :asin.not => session[:seen]))
+  @item_list = sort_by_random(Item.all(:asin => good_asins, :asin.not => session[:seen]))
+  @item_list += sort_by_random(Item.all(:asin.not => good_asins, :asin.not => bad_asins, :asin.not => session[:seen]))
+  @item_list += sort_by_random(Item.all(:asin.in => bad_asins, :asin.not => session[:seen]))
   @item = @item_list.first
   redirect '/give/' + @item.asin + '?tags=' + params[:tags]
 end
