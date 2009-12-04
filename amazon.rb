@@ -32,8 +32,8 @@ end
 
 get '/search' do
   start_over
-  good_asins = []
-  bad_asins = []
+  good_asins = ['xxx']
+  bad_asins = ['xxx']
   params[:tags].split(",").each do |tag|
     if Tag.first(:name => tag)
       @surveys = Survey.tagged_with(tag, :like => true) 
