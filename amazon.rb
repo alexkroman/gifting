@@ -15,7 +15,7 @@ get '/' do
   INNER JOIN taggings ON tags.id = taggings.tag_id
   INNER JOIN surveys ON taggings.taggable_id = surveys.id
   WHERE surveys.like = 't'
-  GROUP BY tags.id ORDER BY tags_count DESC LIMIT 30")
+  GROUP BY tags.id ORDER BY tags_count DESC LIMIT 40")
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 20)
   erb :index
 end
