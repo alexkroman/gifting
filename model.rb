@@ -20,7 +20,7 @@ class Item
   property :url,   String
   property :price,  String
   has n, :surveys
-  
+    
   def referral_url
     CGI.unescape(url).sub('=ws','=scriptfurnace-20')
   end
