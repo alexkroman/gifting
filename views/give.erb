@@ -4,17 +4,17 @@
   For someone tagged <b><%= params[:tags] %></b> you should get:
   <br />
   <div style="font-size:14px;">
-  &raquo; Show me something else: 
+  &raquo; Do you like this recommendation?
   
     <input type="hidden" name="asin" value="<%= @item.asin %>" >
     <input type="hidden" name="like" value="true" >
     <input type="hidden" name="tags" value="<%= params[:tags] %>" >
   
-<input type="submit" name="submit" value="i don't want to get this"> 
+<input type="submit" name="submit" value="Yes"> 
 or
-<input type="submit" name="submit" value="i might get this"> 
+<input type="submit" name="submit" value="No"> 
 or
-<a href="/"><input type="button" value="start over"></a>
+<a href="/"><input type="button" value="Start Over"></a>
   </div>
 </div>
 </form>

@@ -59,7 +59,7 @@ get '/give/:asin' do
 end
 
 get '/vote' do
-  if params[:submit] == "i don't want to get this"
+  if params[:submit] == "No"
     create_survey(false)
   else
     create_survey(true)
