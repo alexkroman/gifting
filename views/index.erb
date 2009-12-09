@@ -42,8 +42,8 @@ We are using a machine learning algorithm to sift through <b>6,336,912</b> poten
 <div style="font-size:20px;line-height:1.8em;">
 
 <% @surveys.each do |survey| %>
-  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.tag_list.join(', ') %>&so=1"><%= survey.item.title %></a> for someone tagged 
-  <% survey.tag_list.each do |tag| %>
+  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.frozen_tag_list %>&so=1"><%= survey.item.title %></a> for someone tagged 
+  <% survey.frozen_tag_list.split(",").each do |tag| %>
     <a href="/search?tags=<%= tag %>&so=1"><%= tag %></a><% end %>.
   <br />
 <% end %>
