@@ -3,13 +3,8 @@ require 'sinatra'
 require 'erb'
 require 'amazon/ecs'
 require 'model'
-require 'facebooker'
-require 'haml'
 
 enable :sessions
-raise "No api_keys.yml was found" unless File.exist?(api_keys_file = "api_keys.yml")
-$keys = YAML.load(File.read(api_keys_file))
-$api_key, $secret_key = $keys['api_key'], $keys['secret_key']
 
 helpers do
   def logged_in?
@@ -33,7 +28,7 @@ get '/' do
   INNER JOIN taggings ON tags.id = taggings.tag_id
   INNER JOIN surveys ON taggings.taggable_id = surveys.id
   WHERE surveys.like = 't'
-  GROUP BY tags.id ORDER BY tags_count DESC LIMIT 60")
+  GROUP BY tags.id ORDER BY tags_count DESC LIMIT 30")
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 20)
   erb :index
 end
@@ -83,14 +78,6 @@ get '/vote' do
     create_survey(true)
   end
   redirect '/search?tags=' + params[:tags] 
-end
-
-get '/login' do
-  haml :login
-end
-
-get '/connect' do
-  haml :connect
 end
 
 def create_survey(like)
