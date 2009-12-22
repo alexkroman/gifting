@@ -6,29 +6,12 @@ require 'model'
 
 enable :sessions
 
-helpers do
-  def logged_in?
-    facebook_user
-  end
-  def facebook_user
-    @facebook_user ||= if request.cookies[$api_key]
-      fb_session = Facebooker::Session.new($api_key, $secret_key)
-      fb_session.secure_with! *%w(session_key user expires ss).map {|k| request.cookies[$api_key + "_" + k]}
-      fb_session.user
-    end
-  end
-end
-
-def cache_control
-  headers['Cache-Control'] = 'max-age=900, public'
-end
-
 get '/' do
-  @tags = repository(:default).adapter.query("SELECT tags.*, COUNT(tags.id) AS tags_count FROM tags
+  @tags = repository(:default).adapter.query("SELECT tags.name, COUNT(tags.id) AS tags_count FROM tags
   INNER JOIN taggings ON tags.id = taggings.tag_id
   INNER JOIN surveys ON taggings.taggable_id = surveys.id
   WHERE surveys.like = 't'
-  GROUP BY tags.id ORDER BY tags_count DESC LIMIT 30")
+  GROUP BY tags.id, tags.name ORDER BY tags_count DESC LIMIT 30")
   @surveys = Survey.all(:like => true, :order => [:id.desc], :limit => 20)
   erb :index
 end
