@@ -7,6 +7,7 @@ require 'model'
 enable :sessions
 
 get '/' do
+  cache_for 5.minutes
   @tags = repository(:default).adapter.query("SELECT tags.name, COUNT(tags.id) AS tags_count FROM tags
   INNER JOIN taggings ON tags.id = taggings.tag_id
   INNER JOIN surveys ON taggings.taggable_id = surveys.id
@@ -65,4 +66,8 @@ end
 
 def create_survey(like)
   Survey.create(:tag_list => params[:tags], :item => Item.first(:asin => params[:asin]), :like => like)    
+end
+
+def cache_for(time)
+  response['Cache-Control'] = "public, max-age=#{time.to_i}"
 end
