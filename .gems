@@ -1,3 +1,4 @@
 amazon-ecs
 dm-tags
-dm-timestamps, :version => 0.10.2
+dm-core --version 0.10.2
+dm-timestamps --version 0.10.2
