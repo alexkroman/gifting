@@ -11,14 +11,13 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3:///#{File.expand_path
 
 class Item
   include DataMapper::Resource
-  validates_present :category_id, :asin, :title, :url, :price
   property :category_id, Integer
   property :asin,   String, :key => true
-  property :title,       String
-  property :artist,       String
-  property :author,       String
-  property :url,   String
-  property :price,  String
+  property :title,       String, :length => 255
+  property :artist,       String, :length => 255
+  property :author,       String, :length => 255
+  property :url,   String, :length => 255
+  property :price,  String, :length => 255
   has n, :surveys
     
   def referral_url
