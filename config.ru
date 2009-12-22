@@ -1,14 +1,14 @@
 require 'rubygems'
 require 'sinatra'
-require 'amazon'
+require 'application'
 
-log = File.new("sinatra.log", "a")
+log = File.new("log/sinatra.log", "a")
 STDOUT.reopen(log)
 STDERR.reopen(log)
 
 Sinatra::Application.default_options.merge!(
   :run => false,
-  :env => :production
+  :environment => :production
 )
 
 run Sinatra::Application
