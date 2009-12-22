@@ -1,6 +1,5 @@
-require 'rake'
+require 'application'
 require 'fileutils'
-require 'amazon'
 require 'amazon/ecs'
 
 Amazon::Ecs.configure do |options|
@@ -12,7 +11,6 @@ task :default => :import
 
 desc "Import"
 task :import do
-  Item.all.destroy!
   @items = []
    
   categories = [
@@ -72,7 +70,7 @@ task :import do
     15684181,
     346333011
     ]
-    
+    p 'Starting...'
     categories.each do |node|
      Amazon::Ecs.send_request(:operation => 'BrowseNodeLookup', :response_group => 'MostGifted', :browse_node_id => node).doc.search('topitemset/topitem') do |item|
        @items << {:asin => item.at('asin').inner_html, :category_id => node}        
@@ -85,10 +83,14 @@ task :import do
    @items.each do |item|
      @item = Amazon::Ecs.item_lookup(item[:asin], :response_group => 'Medium').first_item
      if @item
-       unless Item.get(@item.get('asin'))
+       @duplicate = Item.get(@item.get('asin'))
+       if @duplicate
+         @duplicate.attributes = {:title => @item.get('itemattributes/title'), :price => @item.get('itemattributes/listprice/formattedprice'), :url => @item.get('detailpageurl')}
+         @duplicate.save!
+       else
          Item.create!(:asin => @item.get('asin'), :category_id => item[:category_id], :title => @item.get('itemattributes/title'), :price => @item.get('itemattributes/listprice/formattedprice'), :url => @item.get('detailpageurl'), :author => @item.get('itemattributes/author'), :artist => @item.get('itemattributes/artist'))
        end
-     end
+    end
    end
   end
   

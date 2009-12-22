@@ -1,6 +1,6 @@
 <form action="/vote" method="get">
 
-<div style="font-size:34px;background-color:#eee;padding:15px;">
+<div style="font-size:34px;background-color:#eee;padding:15px;border-bottom:2px solid #777;">
   For someone tagged <b><%= params[:tags] %></b> you should get:
   <br />
   <div style="font-size:14px;">
@@ -19,20 +19,4 @@ or
 </div>
 </form>
 
-
-<br>
-<a onclick="doGoal('<%= @item.referral_url %>')" href="<%= @item.referral_url %>" style="color:#000;text-decoration:none;">
-
-<div style="font-size:54px;">
-
-<b>
-<%= @item.title %> 
-<% if @item.author %> by <%= @item.author %><% end %> 
-<% if @item.artist %> by <%= @item.artist %><% end %></b>
-<%= @item.price %>
-
-<span style="color:black;text-decoration:none;font-size:30px;background-color:pink;padding-left:20px;padding-right:20px;">more info</span>
-</div>
-
-
-</a>
+<iframe src="<%= @item.referral_url %>" frameborder="0" scrolling="auto"></iframe>
