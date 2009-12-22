@@ -7,7 +7,7 @@ require 'model'
 enable :sessions
 
 get '/' do
-  cache_for 5.minutes
+  cache_for 60 * 5
   @tags = repository(:default).adapter.query("SELECT tags.name, COUNT(tags.id) AS tags_count FROM tags
   INNER JOIN taggings ON tags.id = taggings.tag_id
   INNER JOIN surveys ON taggings.taggable_id = surveys.id
