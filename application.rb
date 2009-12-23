@@ -40,9 +40,17 @@ get '/search' do
     end
   end
   
-  @item_list = sort_by_random(Item.all(:asin.in => good_asins, :asin.not => session[:seen]))
-  @item_list |= sort_by_random(Item.all(:asin.not => good_asins + bad_asins + session[:seen]))
-  @item_list |= sort_by_random(Item.all(:asin.in => bad_asins, :asin.not => session[:seen]))
+  @item_list = Item.all(:asin.not => session[:seen])
+    @item_list.each do |item|
+      distance_in_hours = (((Time.now - Time.local(2009,12,1)).abs)/3600).floor
+      item.ups = item.surveys(:like => true).size
+      item.downs = item.surveys(:like => false).size
+      points = item.ups - (item.downs * 0.25)
+      points += 5 if good_asins.include?(item.id)
+      points -= 5 if bad_asins.include?(item.id)
+      item.rank = points
+    end
+  @item_list.sort!{|x,y| y.rank <=> x.rank }
   @item = @item_list.uniq.first
   redirect '/' unless @item
   redirect '/give/' + @item.asin + '?tags=' + params[:tags]

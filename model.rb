@@ -11,6 +11,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "mysql://root:@localhost/gifts
 
 class Item
   include DataMapper::Resource
+  attr_accessor :rank, :ups, :downs
+  
   property :category_id, Integer
   property :asin,   String, :key => true
   property :title,       String, :length => 255
