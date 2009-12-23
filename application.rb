@@ -50,7 +50,7 @@ end
 
 get '/give/:asin' do
   start_over
-  @item = Item.first(:asin => params[:asin])  
+  @item = Item.first(:asin => params[:asin]) 
   session[:seen] << @item.asin
   erb :give
 end

@@ -10,6 +10,17 @@ end
 task :default => :import
 
 desc "Import"
+task :update_attributes do
+  Item.all.each do |item|
+    @item = Amazon::Ecs.item_lookup(item.asin, :response_group => 'Medium').first_item
+    if @item
+      item.attributes = {:title => @item.get('itemattributes/title'), :price => @item.get('itemattributes/listprice/formattedprice'), :url => @item.get('detailpageurl')}
+      item.save!
+    end
+  end
+end
+
+desc "Import"
 task :import do
   @items = []
    
