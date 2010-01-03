@@ -7,7 +7,13 @@ require 'cgi'
 
 DataMapper::Logger.new(STDOUT, :debug)
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "mysql://root:@localhost/gifts") 
+configure :production do
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "mysql://gifts:Aeruu6ma@localhost/gifts") 
+end
+
+configure :development do
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "mysql://root:@localhost/gifts") 
+end
 
 class Item
   include DataMapper::Resource
