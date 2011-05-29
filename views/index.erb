@@ -1,35 +1,36 @@
 <div id="wrap">
 <% @products.each do |category| %>
   <span class="product index">
-    <span class="description">best <%= category[0] %></span>
+    <span class="description">Best <%= category[0] %></span>
     <span class="pictures">
     <% category[1].sort_by{|x| x.sales_rank}[0..5].each do |product| %>
-      <a title="<b>Best <%= product.category%></b>" class="id-<%=category[0].to_url%>" href="#inline-<%=category[0].to_url%>"><img width="60" height="60" src="<%= product.small_image %>"></a>
+      <a title="Best <%=product.category %>" class="<%=category[0].to_url%>" href="#inline-<%=category[0].to_url%>"><img width="60" height="60" src="<%= product.small_image %>" alt="<%= CGI.escape(product.title) %>" /></a>
     <% end %>
+    <script type="text/javascript">
+    $(".<%=category[0].to_url%>").fancybox({
+      'opacity'		: true,
+    	'overlayShow'	: true,
+    	'transitionIn'	: 'fade',
+    	'transitionOut'	: 'none',
+    	'scrolling': 'no',
+    	'titlePosition' : 'inside',
+    	'centerOnScroll' : 'true'
+    });
+    </script>
     </span>
   </span>
 <div style="display: none;">
 	<div id="inline-<%=category[0].to_url%>" style="width:715px;height:520px;overflow:none">
 	  <% category[1].sort_by{|x| x.sales_rank}[0..5].each do |product| %>
       <span class="product small">
-        <span class="pictures"><a href="<%= product.referral_url %>"><img src="<%= product.medium_image %>"></a></span>
-        <span class="title"><a href="<%= product.referral_url %>"><%=product.title.to_s[0..60]%></a></span>
+        <span class="pictures"><a href="<%= product.referral_url %>"><img src="<%= product.medium_image %>" alt="<%= CGI.escape(product.title) %>" /></a></span>
+        <span class="title"><a href="<%= product.referral_url %>"><%= product.title.to_s[0..60] %></a></span>
         <b><%= product.price %></b>
       </span>
     <% end %>
 	</div>
 </div>
-<script>
-$(".id-<%=category[0].to_url%>").fancybox({
-  'opacity'		: true,
-	'overlayShow'	: true,
-	'transitionIn'	: 'fade',
-	'transitionOut'	: 'none',
-	'scrolling': 'no',
-	'titlePosition' : 'inside',
-	'centerOnScroll' : 'true'
-});
-</script>
+
 <% end %>
 
 </div>

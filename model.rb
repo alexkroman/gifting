@@ -19,7 +19,7 @@ class Product < Sequel::Model
   
   def referral_url
     return '' unless url
-    CGI.unescape(url).sub('=ws','=scriptfurnace-20')
+    CGI.unescape(url).sub('=ws','=scriptfurnace-20').gsub('&','&amp;')
   end
   
   def rounded_price

@@ -1,15 +1,18 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" media="screen">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="/jquery.fancybox/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script type="text/javascript" src="/jquery.fancybox/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-	<link rel="stylesheet" type="text/css" href="/jquery.fancybox/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-</head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Allthebests</title>
+  <link rel="stylesheet" href="/style.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/jquery.fancybox/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <link rel="stylesheet" type="text/css" href="/jquery.fancybox/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+</head> 
 <body>
-  <h1><a href="/"><img src="/logo.png"></a></h1>
-  <div style="float:right;height:30px;width:380px;"><iframe src="http://www.facebook.com/plugins/like.php?app_id=152953101441869&amp;href=http%3A%2F%2Fallthebests.com%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe></div>
+  <h1><a href="/"><img src="/logo.png" alt="allthebests" /></a></h1>
+  <div style="float:right;height:30px;width:380px;"><iframe src="http://www.facebook.com/plugins/like.php?app_id=152953101441869&amp;href=http%3A%2F%2Fallthebests.com%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;"></iframe></div>
   <div id="tagline">The best and highest rated products on Amazon.</div>  
-    <%= yield %>
+  <%= yield %>
 </body>
 </html>
