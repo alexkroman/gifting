@@ -1,47 +1,42 @@
-require 'dm-core'
-require 'dm-validations'
-require 'dm-timestamps'
-require 'dm-tags'
-require 'open-uri'
-require 'cgi'
+set :database, 'sqlite://test.db'
 
-DataMapper::Logger.new(STDOUT, :debug)
-
-configure :production do
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "mysql://gifts:Aeruu6ma@localhost/gifts") 
+migration "create products" do
+  database.create_table :products do
+    primary_key :id
+    string      :asin, :unique => true
+    string      :title
+    string      :image
+    string      :url
+    string      :price
+    string      :category
+    string      :category_slug
+    number      :sales_rank
+    number      :category_id
+  end
 end
 
-configure :development do
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "mysql://root:@localhost/gifts") 
-end
-
-class Item
-  include DataMapper::Resource
-  attr_accessor :rank, :ups, :downs
+class Product < Sequel::Model
   
-  property :category_id, Integer
-  property :asin,   String, :key => true
-  property :title,       String, :length => 255
-  property :artist,       String, :length => 255
-  property :author,       String, :length => 255
-  property :url,   String, :length => 255
-  property :price,  String, :length => 255
-  has n, :surveys
-    
   def referral_url
+    return '' unless url
     CGI.unescape(url).sub('=ws','=scriptfurnace-20')
   end
-
+  
+  def rounded_price
+    case price
+      when 0..10
+        10
+      when 10..25
+        25
+      when 25..50
+        50
+      when 50..75
+        75
+      when 75..150
+        150
+      when 150..1000
+        1000
+    end
+  end
+  
 end
-
-class Survey
-  include DataMapper::Resource
-  validates_present :like
-  property :id,         Serial
-  property :like, Boolean, :index => true
-  property :created_at, DateTime
-  belongs_to :item
-  has_tags  
-end
-
-DataMapper.auto_upgrade!

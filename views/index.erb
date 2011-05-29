@@ -1,53 +1,17 @@
-<div style="margin-left:15%;margin-right:15%;">
-<form action="search" method="get">
-  
-
-
-<div style="background-color: #777;color:#fff;padding:20px;margin-bottom:0px;font-size:24px;">
-<b style="font-size:32px;">gifts.alexkroman.com</b> <span style="font-size:20px;">It's like Pandora for Shopping.</span>
-</div>
-
-<div style="background-color: #eee;padding:20px;">
-
-<span style="font-size:24px;color:#777;">
-We are using a machine learning algorithm to sift through <b>6,336,912</b> potential gift ideas.  The more you use the site, the better your recommendations will be.
-</span>
-
-<br /><br />
-<span style="font-size:22px;">Describe the person you're shopping for with tags.</span>
-
-<br />
-
-<input type="text" name="tags" style="width:95%;font-size:34px;" value="boyfriend, mid-twenties, artistic, golfer" />
-
-<input type="hidden" name="so" value="1" />
-<p style="text-align:center;"><input type="submit" value="Start looking for the perfect gift" /></p>
-
-
-
-</div>
-
-
-</form>
-
-<h2>Top Tags</h2>
-
-<span style="font-size:22px;">
-<% @tags.each do |tag| %>
-  <a href="/search?tags=<%= tag.name %>&so=1"><%= tag.name %></a>
-<% end %>
-</span>
-
-<h2>Recent Picks</h2>
-<div style="font-size:20px;line-height:1.8em;">
-
-<% @surveys.each do |survey| %>
-  <a href="/give/<%= survey.item.asin %>?tags=<%= survey.frozen_tag_list %>&so=1"><%= survey.item.title %></a> for someone tagged 
-  <% survey.frozen_tag_list.split(",").each do |tag| %>
-    <a href="/search?tags=<%= tag %>&so=1"><%= tag %></a><% end %>.
-  <br />
+<div id="wrap">
+<% @products.each do |category| %>
+  <span class="product index">
+    <span class="description"><a href="<%= category[0].to_url %>">
+    Best <%= category[0] %></a></span>
+    <span class="pictures">
+    <% category[1][0..5].each do |product| %>
+      <a href="<%= category[0].to_url %>">
+        <img width="60" height="60" src="<%= product.image %>">
+      </a>
+    <% end %>
+    </span>
+  </span>
+</a>
 <% end %>
 </div>
-
-
-</div>
+<a href="/"><div style="font-size:1.8em;font-weight:bold;text-align:center;margin-top:20px;">show more products ...</div></a>

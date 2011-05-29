@@ -1,40 +1,10 @@
-<?xml version="1.0"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html>
 <head>
-<title>gifts.alexkroman.com</title>
-<style type="text/css">
-body {font: 18px helvetica;margin:0;}
-table {width: 300px;}
-table th {font-size: 24px;font-weight:bold;color:#000;}
-table td {font-size: 18px;}
-h2 {margin-bottom:5;}
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<script type="text/javascript"> 
-function doGoal(that) { 
-try { 
-var pageTracker=_gat._getTracker("UA-123456-1"); 
-pageTracker._trackPageview("/sale"); 
-setTimeout('document.location = "' + that + '"', 100) 
-}catch(err){} 
-} 
-</script>
-
-</head>
+  <link rel="stylesheet" href="/style.css" type="text/css" media="screen">
+</head>  
 <body>
-
-<%= yield %>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-173596-10");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-
+  <h1><a href="/"><img src="/logo.png"></a></h1>
+  <div id="tagline">The best and highest rated products on Amazon.</div>  
+    <%= yield %>
 </body>
 </html>
