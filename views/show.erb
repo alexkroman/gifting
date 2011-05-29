@@ -1,9 +1,0 @@
-<div id="wrap">
-<% @products.each do |product,i| %>  
-  <span class="product">
-    <span class="pictures"><a href="<%= product.referral_url %>"><img src="<%= product.image %>"></a></span>
-    <span class="title"><a href="<%= product.referral_url %>"><%=product.title.to_s[0..100]%></a></span>
-    <b><%= product.price %></b>
-  </span>
-<% end %>
-</div>

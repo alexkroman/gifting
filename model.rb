@@ -3,15 +3,15 @@ set :database, 'sqlite://test.db'
 migration "create products" do
   database.create_table :products do
     primary_key :id
-    string      :asin, :unique => true
+    string      :asin
     string      :title
-    string      :image
+    string      :small_image
+    string      :medium_image
     string      :url
     string      :price
     string      :category
     string      :category_slug
     number      :sales_rank
-    number      :category_id
   end
 end
 
