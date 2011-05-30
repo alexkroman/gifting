@@ -1,4 +1,4 @@
-set :database, 'sqlite://test.db'
+set :database, ENV['DATABASE_URL'] || 'sqlite://test.db'
 
 migration "create products" do
   database.create_table :products do
