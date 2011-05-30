@@ -6,16 +6,19 @@ require 'fastercsv'
 Amazon::Ecs.configure do |options|
   options[:aWS_access_key_id] = "1QW4DWZG84P8WNG78R02"
   options[:aWS_secret_key] = "VdN92FTHaCefD/PA4dKnhVB2fEYpRadQDB+vCp3i"
+  options[:AssociateTag] = 'scriptfurnace-20'
 end
 
 task :keywords do
   Product.delete
   FasterCSV.foreach('keywords.csv', :headers => :first_row) {|row|
       minimum_price = (row[2].nil? ? 15 : row[2]).to_i * 100  
-      sort = (row[3].nil? ? 'pmrank' : row[2])
+      search_index = row[1]
+      default_sort = (search_index =~ /Apparel|Books|DVD|Grocery|MP3Downloads|Shoes|SportingGoods|Watches/) ? 'relevancerank' : 'pmrank'
+      sort = row[3].nil? ? default_sort : row[3]
       search = row[0].gsub('best ','')  
-      p "#{search} min: #{minimum_price}"
-      res = Amazon::Ecs.item_search(search, {:response_group => 'Medium', :search_index => row[1], :minimum_price => minimum_price, :sort => sort})
+      p "#{search} | #{minimum_price} | #{search_index} | #{sort}"
+      res = Amazon::Ecs.item_search(search, {:response_group => 'Medium', :search_index => search_index, :minimum_price => minimum_price, :sort => sort})
       res.items.each do |item|
         small_image = item.get('imageset/smallimage/url')
         price = item.get('lowestnewprice/formattedprice')

@@ -16,27 +16,4 @@ migration "create products" do
 end
 
 class Product < Sequel::Model
-  
-  def referral_url
-    return '' unless url
-    CGI.unescape(url).sub('=ws','=scriptfurnace-20').gsub('&','&amp;')
-  end
-  
-  def rounded_price
-    case price
-      when 0..10
-        10
-      when 10..25
-        25
-      when 25..50
-        50
-      when 50..75
-        75
-      when 75..150
-        150
-      when 150..1000
-        1000
-    end
-  end
-  
 end

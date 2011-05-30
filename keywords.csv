@@ -6,27 +6,27 @@ best sunglasses,Apparel,,,0.56,49500,33100,$1.20
 best bras,Apparel,20,,0.77,27100,18100,$1.52
 best shapewear,Apparel,,,0.93,5400,3600,$1.55
 best car batteries,Automotive,50,salesrank,0.56,18100,12100,$1.12
-best car wax,Automotive,,,0.52,18100,12100,$1.82
+best car wax,Automotive,,salesrank,0.52,18100,12100,$1.82
 best car battery,Automotive,50,salesrank,0.53,12100,9900,$1.10
-best car speakers,Automotive,,,0.34,14800,9900,$0.57
-best snow tires,Automotive,50,,0.76,9900,8100,$1.79
-best winter tires,Automotive,100,,0.77,8100,2900,$1.88
-best car polish,Automotive,,,0.56,8100,1900,$1.54
-best baby monitors,Baby,30,,0.43,22200,12100,$0.61
-best baby monitor,Baby,,,0.41,14800,9900,$0.62
-best cribs,Baby,100,,0.72,9900,8100,$0.81
-best diaper bags,Baby,,,0.69,9900,8100,$0.77
-best breast pump,Baby,,,0.32,12100,8100,$0.65
-best baby gifts,Baby,,,0.85,8100,6600,$1.31
-best baby strollers,Baby,50,,0.61,9900,6600,$0.63
-best double stroller,Baby,50,,0.58,8100,6600,$0.62
-best baby bottles,Baby,,,0.36,9900,6600,$0.73
-best high chairs,Baby,50,,0.66,9900,5400,$0.46
-best jogging stroller,Baby,50,,0.64,5400,5400,$0.53
-best diaper bag,Baby,,,0.63,6600,5400,$0.76
-best booster seats,Baby,,,0.68,5400,4400,$0.62
-best high chair,Baby,,,0.6,8100,4400,$0.50
-best baby toys,Baby,,,0.53,6600,3600,$0.71
+best car speakers,Automotive,,salesrank,0.34,14800,9900,$0.57
+best snow tires,Automotive,50,salesrank,0.76,9900,8100,$1.79
+best winter tires,Automotive,100,salesrank,0.77,8100,2900,$1.88
+best car polish,Automotive,,salesrank,0.56,8100,1900,$1.54
+best baby monitors,Baby,30,salesrank,0.43,22200,12100,$0.61
+best baby monitor,Baby,,salesrank,0.41,14800,9900,$0.62
+best cribs,Baby,100,salesrank,0.72,9900,8100,$0.81
+best diaper bags,Baby,,salesrank,0.69,9900,8100,$0.77
+best breast pump,Baby,,salesrank,0.32,12100,8100,$0.65
+best baby gifts,Baby,,salesrank,0.85,8100,6600,$1.31
+best baby strollers,Baby,50,salesrank,0.61,9900,6600,$0.63
+best double stroller,Baby,50,salesrank,0.58,8100,6600,$0.62
+best baby bottles,Baby,,salesrank,0.36,9900,6600,$0.73
+best high chairs,Baby,50,salesrank,0.66,9900,5400,$0.46
+best jogging stroller,Baby,50,salesrank,0.64,5400,5400,$0.53
+best diaper bag,Baby,,salesrank,0.63,6600,5400,$0.76
+best booster seats,Baby,,salesrank,0.68,5400,4400,$0.62
+best high chair,Baby,,salesrank,0.6,8100,4400,$0.50
+best baby toys,Baby,,salesrank,0.53,6600,3600,$0.71
 best maternity clothes,Baby,30,salesrank,0.91,2400,1900,$1.24
 best hair color,Beauty,20,,0.4,90500,74000,$1.40
 best foundation,Beauty,10,,0.38,135000,74000,$1.94
@@ -159,7 +159,6 @@ best rc helicopter,Electronics,100,salesrank,0.63,12100,6600,$0.98
 best notebooks,Electronics,1000,,0.62,14800,6600,$2.81
 best metal detector,Electronics,100,salesrank,0.62,9900,6600,$1.34
 best dvd recorder,Electronics,50,,0.6,12100,6600,$0.40
-best bluetooth headphones,WirelessAccessories,30,,0.55,9900,6600,$1.33
 best cordless drill,Electronics,50,,0.5,9900,6600,$0.47
 best universal remote,Electronics,50,,0.43,8100,6600,$0.42
 best wireless keyboard,Electronics,30,,0.42,12100,6600,$0.53
@@ -216,126 +215,126 @@ best bodybuilding supplements,HealthPersonalCare,,,0.71,6600,3600,$1.76
 best sleeping pills,HealthPersonalCare,,,0.34,6600,3600,$1.26
 best cellulite treatment,HealthPersonalCare,,,0.91,3600,1600,$4.63
 best slimming pills,HealthPersonalCare,,,0.88,3600,210,$1.79
-best iron,HomeGarden,10,,0.45,135000,90500,$0.76
-best furniture,HomeGarden,200,,0.64,110000,74000,$1.63
-best bed,HomeGarden,500,,0.55,110000,74000,$2.28
-best washer,HomeGarden,100,,0.81,74000,60500,$1.68
-best bbq,HomeGarden,10,,0.15,90500,60500,$1.06
-best car seats,HomeGarden,50,,0.47,74000,49500,$0.65
-best vacuum cleaners,HomeGarden,100,,0.84,74000,40500,$1.12
-best stroller,HomeGarden,50,,0.52,49500,33100,$0.61
-best car seat,HomeGarden,50,,0.43,40500,33100,$0.68
-best acoustic guitar,HomeGarden,100,,0.17,60500,33100,$0.85
-best washer dryer,HomeGarden,100,,0.84,33100,27100,$1.86
-best vacuum cleaner,HomeGarden,100,,0.84,49500,27100,$1.05
-best refrigerator,HomeGarden,50,,0.77,40500,27100,$1.78
-best lawn mowers,HomeGarden,50,,0.77,33100,27100,$0.78
-best carpet cleaner,HomeGarden,50,,0.7,40500,27100,$4.55
-best luggage,HomeGarden,50,,0.67,40500,27100,$1.00
-best microwave,HomeGarden,50,,0.62,40500,27100,$0.81
-best flat iron,HomeGarden,,,0.6,33100,27100,$0.82
-best cookware,HomeGarden,50,reviewrank,0.6,33100,27100,$0.55
-best electric razor,HomeGarden,50,,0.56,40500,27100,$1.04
-best shaver,HomeGarden,,,0.53,40500,27100,$1.16
-best board games,HomeGarden,,,0.11,40500,27100,$0.65
-best refrigerators,HomeGarden,300,,0.86,27100,22200,$1.73
-best water filters,HomeGarden,,,0.82,27100,22200,$2.78
-best pillow,HomeGarden,,,0.77,33100,22200,$2.23
-best grills,HomeGarden,,,0.77,27100,22200,$0.96
-best juicers,HomeGarden,,,0.75,33100,22200,$0.51
 best teeth whitening,HealthPersonalCare,,,0.7,33100,22200,$6.75
-best cordless phones,HomeGarden,50,,0.65,33100,22200,$0.66
-best sunscreen,HomeGarden,,,0.47,33100,22200,$0.94
-best pregnancy test,HomeGarden,,,0.31,33100,22200,$2.18
-best wallpapers,HomeGarden,,,0.04,165000,22200,$0.79
-best air purifiers,HomeGarden,50,,0.96,27100,18100,$2.67
-best mattresses,HomeGarden,100,,0.89,22200,18100,$2.31
-best water heater,HomeGarden,100,,0.83,18100,18100,$2.48
-best air conditioner,HomeGarden,100,,0.8,33100,18100,$2.30
-best juicer,HomeGarden,50,,0.73,27100,18100,$0.60
-best lawn mower,HomeGarden,100,,0.72,27100,18100,$0.72
-best toaster,HomeGarden,,,0.7,22200,18100,$0.57
-best hair dryers,HomeGarden,,,0.68,27100,18100,$0.67
-best beds,HomeGarden,,,0.67,33100,18100,$1.97
-best sheets,HomeGarden,50,,0.65,22200,18100,$1.27
-best humidifier,HomeGarden,50,,0.62,22200,18100,$0.66
-best strollers,HomeGarden,100,,0.58,27100,18100,$0.61
-best toilet,HomeGarden,50,,0.54,27100,18100,$1.04
-best electric shaver,HomeGarden,40,,0.53,27100,18100,$1.09
-best slow cookers,HomeGarden,30,,0.26,27100,18100,$0.36
-best air purifier,HomeGarden,40,,0.95,18100,14800,$2.90
-best dishwashers,HomeGarden,100,,0.88,22200,14800,$1.43
-best water filter,HomeGarden,30,,0.81,22200,14800,$2.87
-best washing machine,HomeGarden,200,,0.77,49500,14800,$1.47
-best hair dryer,HomeGarden,40,,0.65,22200,14800,$0.69
-best flashlight,HomeGarden,20,,0.57,18100,14800,$0.85
-best toothbrush,HomeGarden,50,,0.54,27100,14800,$1.61
-best sewing machine,HomeGarden,100,,0.52,22200,14800,$0.44
-best slow cooker,HomeGarden,50,,0.23,27100,14800,$0.39
-best steam cleaner,HomeGarden,50,,0.89,14800,12100,$1.67
-best washers,HomeGarden,100,,0.87,14800,12100,$1.66
-best food processors,HomeGarden,50,,0.49,22200,12100,$0.40
-best curling irons,HomeGarden,30,,0.44,18100,12100,$0.42
-best pillows,HomeGarden,,,0.86,14800,9900,$2.55
-best gas grills,HomeGarden,100,,0.81,9900,9900,$0.95
-best espresso machine,HomeGarden,200,,0.78,14800,9900,$1.41
-best toaster ovens,HomeGarden,50,,0.75,12100,9900,$0.76
-best space heaters,HomeGarden,30,,0.69,12100,9900,$0.80
-best snow blowers,HomeGarden,200,,0.66,12100,9900,$0.75
-best umbrella,HomeGarden,,salesrank,0.64,14800,9900,$0.81
-best food processor,HomeGarden,100,,0.46,18100,9900,$0.39
-best curling iron,HomeGarden,,,0.42,14800,9900,$0.44
-best dehumidifier,HomeGarden,100,,0.83,12100,8100,$1.24
-best toaster oven,HomeGarden,100,,0.72,9900,8100,$0.68
-best steam mop,HomeGarden,,,0.69,9900,8100,$0.70
-best gas grill,HomeGarden,,,0.68,9900,8100,$0.87
-best snow blower,HomeGarden,100,,0.59,9900,8100,$0.80
-best snowblower,HomeGarden,100,,0.59,9900,8100,$0.76
-best chainsaw,HomeGarden,100,,0.55,9900,8100,$0.43
-best replacement windows,HomeGarden,100,,0.87,8100,6600,$8.10
-best washing machines,HomeGarden,100,,0.86,18100,6600,$1.52
-best canister vacuum,HomeGarden,100,,0.86,8100,6600,$1.24
-best photo books,HomeGarden,,,0.83,9900,6600,$7.92
-best upright vacuum,HomeGarden,100,,0.8,8100,6600,$1.03
-best shower head,HomeGarden,,,0.78,8100,6600,$1.84
-best toilets,HomeGarden,50,,0.78,9900,6600,$1.27
-best blenders,HomeGarden,30,,0.78,8100,6600,$0.51
-best solar panels,HomeGarden,100,,0.77,14800,6600,$4.09
-best laminate flooring,HomeGarden,50,,0.75,9900,6600,$2.40
-best exterior paint,HomeGarden,10,,0.6,8100,6600,$0.93
-best interior paint,HomeGarden,,,0.52,8100,6600,$0.59
-best bread machine,HomeGarden,50,,0.28,8100,6600,$0.35
-best gift baskets,HomeGarden,30,,0.9,5400,5400,$3.44
-best man gifts,HomeGarden,30,,0.9,14800,5400,$1.68
-best pressure washer,HomeGarden,100,,0.81,8100,5400,$1.25
-best microwaves,HomeGarden,100,,0.75,6600,5400,$0.88
-best deck stain,HomeGarden,,,0.67,5400,5400,$1.35
-best space heater,HomeGarden,50,,0.64,5400,5400,$0.68
-best knife sharpener,HomeGarden,,,0.62,8100,5400,$0.54
-best home gym,HomeGarden,,,0.61,8100,5400,$1.75
-best ear plugs,HomeGarden,,,0.6,9900,5400,$1.13
-best coffee grinder,HomeGarden,30,,0.58,6600,5400,$0.59
-best water softener,HomeGarden,,,0.95,6600,4400,$3.79
-best steam irons,HomeGarden,30,,0.79,14800,4400,$0.39
-best humidifiers,HomeGarden,50,,0.74,5400,4400,$0.71
-best sewing machines,HomeGarden,100,,0.66,6600,4400,$0.39
-best leaf blower,HomeGarden,200,,0.8,4400,3600,$0.79
-best handheld vacuum,HomeGarden,50,,0.65,4400,3600,$1.20
-best hoover,HomeGarden,50,,0.54,9900,3600,$1.43
-best irons 2010,HomeGarden,50,,0.29,6600,3600,$0.39
-best paper shredder,HomeGarden,50,,0.81,4400,2900,$1.89
-best refrigerators 2010,HomeGarden,300,,0.81,3600,2900,$1.71
-best steam iron,HomeGarden,50,,0.78,8100,2900,$0.39
-best dishwashers 2010,HomeGarden,200,,0.77,4400,2900,$1.15
-best lawn tractor,HomeGarden,200,,0.75,3600,2900,$0.51
-best bathroom scale,HomeGarden,40,,0.67,2900,2400,$0.44
-best dehumidifiers,HomeGarden,,,0.9,3600,1900,$1.49
-best straightening iron,HomeGarden,,,0.67,1900,1600,$0.93
-best dishwasher brand,HomeGarden,200,,0.84,1900,1300,$1.15
-best tumble dryer,HomeGarden,200,,0.54,4400,91,$1.52
-best watches,Jewelry,100,,0.53,110000,49500,$1.38
+best iron,Kitchen,10,,0.45,135000,90500,$0.76
+best furniture,Kitchen,200,,0.64,110000,74000,$1.63
+best bed,Kitchen,500,,0.55,110000,74000,$2.28
+best washer,Kitchen,100,,0.81,74000,60500,$1.68
+best bbq,Kitchen,10,,0.15,90500,60500,$1.06
+best car seats,Kitchen,50,,0.47,74000,49500,$0.65
+best vacuum cleaners,Kitchen,100,,0.84,74000,40500,$1.12
+best stroller,Kitchen,50,,0.52,49500,33100,$0.61
+best car seat,Kitchen,50,,0.43,40500,33100,$0.68
+best acoustic guitar,Kitchen,100,,0.17,60500,33100,$0.85
+best washer dryer,Kitchen,100,,0.84,33100,27100,$1.86
+best vacuum cleaner,Kitchen,100,,0.84,49500,27100,$1.05
+best refrigerator,Kitchen,50,,0.77,40500,27100,$1.78
+best lawn mowers,Kitchen,50,,0.77,33100,27100,$0.78
+best carpet cleaner,Kitchen,50,,0.7,40500,27100,$4.55
+best luggage,Kitchen,50,,0.67,40500,27100,$1.00
+best microwave,Kitchen,50,,0.62,40500,27100,$0.81
+best flat iron,Kitchen,,,0.6,33100,27100,$0.82
+best cookware,Kitchen,50,,0.6,33100,27100,$0.55
+best electric razor,Kitchen,50,,0.56,40500,27100,$1.04
+best shaver,Kitchen,,,0.53,40500,27100,$1.16
+best board games,Kitchen,,,0.11,40500,27100,$0.65
+best refrigerators,Kitchen,300,,0.86,27100,22200,$1.73
+best water filters,Kitchen,,,0.82,27100,22200,$2.78
+best pillow,Kitchen,,,0.77,33100,22200,$2.23
+best grills,Kitchen,,,0.77,27100,22200,$0.96
+best juicers,Kitchen,,,0.75,33100,22200,$0.51
+best cordless phones,Kitchen,50,,0.65,33100,22200,$0.66
+best sunscreen,Kitchen,,,0.47,33100,22200,$0.94
+best pregnancy test,Kitchen,,,0.31,33100,22200,$2.18
+best wallpapers,Kitchen,,,0.04,165000,22200,$0.79
+best air purifiers,Kitchen,50,,0.96,27100,18100,$2.67
+best mattresses,Kitchen,100,,0.89,22200,18100,$2.31
+best water heater,Kitchen,100,,0.83,18100,18100,$2.48
+best air conditioner,Kitchen,100,,0.8,33100,18100,$2.30
+best juicer,Kitchen,50,,0.73,27100,18100,$0.60
+best lawn mower,Kitchen,100,,0.72,27100,18100,$0.72
+best toaster,Kitchen,,,0.7,22200,18100,$0.57
+best hair dryers,Kitchen,,,0.68,27100,18100,$0.67
+best beds,Kitchen,,,0.67,33100,18100,$1.97
+best sheets,Kitchen,50,,0.65,22200,18100,$1.27
+best humidifier,Kitchen,50,,0.62,22200,18100,$0.66
+best strollers,Kitchen,100,,0.58,27100,18100,$0.61
+best toilet,Kitchen,50,,0.54,27100,18100,$1.04
+best electric shaver,Kitchen,40,,0.53,27100,18100,$1.09
+best slow cookers,Kitchen,30,,0.26,27100,18100,$0.36
+best air purifier,Kitchen,40,,0.95,18100,14800,$2.90
+best dishwashers,Kitchen,100,,0.88,22200,14800,$1.43
+best water filter,Kitchen,30,,0.81,22200,14800,$2.87
+best washing machine,Kitchen,200,,0.77,49500,14800,$1.47
+best hair dryer,Kitchen,40,,0.65,22200,14800,$0.69
+best flashlight,Kitchen,20,,0.57,18100,14800,$0.85
+best toothbrush,Kitchen,50,,0.54,27100,14800,$1.61
+best sewing machine,Kitchen,100,,0.52,22200,14800,$0.44
+best slow cooker,Kitchen,50,,0.23,27100,14800,$0.39
+best steam cleaner,Kitchen,50,,0.89,14800,12100,$1.67
+best washers,Kitchen,100,,0.87,14800,12100,$1.66
+best food processors,Kitchen,50,,0.49,22200,12100,$0.40
+best curling irons,Kitchen,30,,0.44,18100,12100,$0.42
+best pillows,Kitchen,,,0.86,14800,9900,$2.55
+best gas grills,Kitchen,100,,0.81,9900,9900,$0.95
+best espresso machine,Kitchen,200,,0.78,14800,9900,$1.41
+best toaster ovens,Kitchen,50,,0.75,12100,9900,$0.76
+best space heaters,Kitchen,30,,0.69,12100,9900,$0.80
+best snow blowers,Kitchen,200,,0.66,12100,9900,$0.75
+best umbrella,Kitchen,,,0.64,14800,9900,$0.81
+best food processor,Kitchen,100,,0.46,18100,9900,$0.39
+best curling iron,Kitchen,,,0.42,14800,9900,$0.44
+best dehumidifier,Kitchen,100,,0.83,12100,8100,$1.24
+best toaster oven,Kitchen,100,,0.72,9900,8100,$0.68
+best steam mop,Kitchen,,,0.69,9900,8100,$0.70
+best gas grill,Kitchen,,,0.68,9900,8100,$0.87
+best snow blower,Kitchen,100,,0.59,9900,8100,$0.80
+best snowblower,Kitchen,100,,0.59,9900,8100,$0.76
+best chainsaw,Kitchen,100,,0.55,9900,8100,$0.43
+best replacement windows,Kitchen,100,,0.87,8100,6600,$8.10
+best washing machines,Kitchen,100,,0.86,18100,6600,$1.52
+best canister vacuum,Kitchen,100,,0.86,8100,6600,$1.24
+best photo books,Kitchen,,,0.83,9900,6600,$7.92
+best upright vacuum,Kitchen,100,,0.8,8100,6600,$1.03
+best shower head,Kitchen,,,0.78,8100,6600,$1.84
+best toilets,Kitchen,50,,0.78,9900,6600,$1.27
+best blenders,Kitchen,30,,0.78,8100,6600,$0.51
+best solar panels,Kitchen,100,,0.77,14800,6600,$4.09
+best laminate flooring,Kitchen,50,,0.75,9900,6600,$2.40
+best exterior paint,Kitchen,10,,0.6,8100,6600,$0.93
+best interior paint,Kitchen,,,0.52,8100,6600,$0.59
+best bread machine,Kitchen,50,,0.28,8100,6600,$0.35
+best gift baskets,Kitchen,30,,0.9,5400,5400,$3.44
+best man gifts,Kitchen,30,,0.9,14800,5400,$1.68
+best pressure washer,Kitchen,100,,0.81,8100,5400,$1.25
+best microwaves,Kitchen,100,,0.75,6600,5400,$0.88
+best deck stain,Kitchen,,,0.67,5400,5400,$1.35
+best space heater,Kitchen,50,,0.64,5400,5400,$0.68
+best knife sharpener,Kitchen,,,0.62,8100,5400,$0.54
+best home gym,Kitchen,,,0.61,8100,5400,$1.75
+best ear plugs,Kitchen,,,0.6,9900,5400,$1.13
+best coffee grinder,Kitchen,30,,0.58,6600,5400,$0.59
+best water softener,Kitchen,,,0.95,6600,4400,$3.79
+best steam irons,Kitchen,30,,0.79,14800,4400,$0.39
+best humidifiers,Kitchen,50,,0.74,5400,4400,$0.71
+best sewing machines,Kitchen,100,,0.66,6600,4400,$0.39
+best leaf blower,Kitchen,200,,0.8,4400,3600,$0.79
+best handheld vacuum,Kitchen,50,,0.65,4400,3600,$1.20
+best hoover,Kitchen,50,,0.54,9900,3600,$1.43
+best irons 2010,Kitchen,50,,0.29,6600,3600,$0.39
+best paper shredder,Kitchen,50,,0.81,4400,2900,$1.89
+best refrigerators 2010,Kitchen,300,,0.81,3600,2900,$1.71
+best steam iron,Kitchen,50,,0.78,8100,2900,$0.39
+best dishwashers 2010,Kitchen,200,,0.77,4400,2900,$1.15
+best lawn tractor,Kitchen,200,,0.75,3600,2900,$0.51
+best bathroom scale,Kitchen,40,,0.67,2900,2400,$0.44
+best dehumidifiers,Kitchen,,,0.9,3600,1900,$1.49
+best straightening iron,Kitchen,,,0.67,1900,1600,$0.93
+best dishwasher brand,Kitchen,200,,0.84,1900,1300,$1.15
+best tumble dryer,Kitchen,200,,0.54,4400,91,$1.52
+best watches,Watches,100,,0.53,110000,49500,$1.38
 best friend necklaces,Jewelry,50,,0.57,14800,12100,$0.63
-best mens watches,Jewelry,200,,0.64,12100,8100,$1.99
+best mens watches,Watches,200,,0.64,12100,8100,$1.99
 best friend bracelets,Jewelry,,,0.54,6600,5400,$0.98
 best friend jewelry,Jewelry,50,,0.85,3600,2900,$0.83
 best friend rings,Jewelry,100,,0.59,3600,2900,$0.65
@@ -440,17 +439,18 @@ best computer games,VideoGames,50,,0.14,27100,14800,$0.77
 best mmorpg 2010,VideoGames,,,0.25,18100,6600,$0.31
 best mmorpg games,VideoGames,,,0.39,14800,5400,$0.57
 best smartphone,Wireless,150,,0.43,165000,90500,$2.20
-best bluetooth,Wireless,200,,0.43,110000,74000,$1.10
-best android phones,Wireless,70,,0.32,165000,74000,$4.98
-best cell phones,Wireless,100,,0.71,90500,60500,$2.95
-best android phone,Wireless,100,,0.32,135000,60500,$5.21
-best phone plans,Wireless,,,0.93,60500,40500,$5.23
-best mobile phone,Wireless,,,0.52,201000,22200,$4.03
-best smartphones,Wireless,200,,0.42,40500,18100,$2.95
-best droid phone,Wireless,100,,0.27,18100,14800,$2.51
-best smartphone 2010,Wireless,200,,0.34,33100,12100,$1.05
-best camera phone,Wireless,200,,0.32,33100,9900,$4.03
-best mobile phones,Wireless,100,,0.51,49500,8100,$2.76
-best smartphone 2011,Wireless,150,,0.44,18100,6600,$2.46
-best phone contracts,Wireless,,,0.86,14800,4400,$4.03
-best htc phone,Wireless,100,,0.47,18100,4400,$1.99
+best bluetooth,Wireless,200,salesrank,0.43,110000,74000,$1.10
+best android phones,Wireless,70,salesrank,0.32,165000,74000,$4.98
+best cell phones,Wireless,100,salesrank,0.71,90500,60500,$2.95
+best android phone,Wireless,100,salesrank,0.32,135000,60500,$5.21
+best phone plans,Wireless,,salesrank,0.93,60500,40500,$5.23
+best mobile phone,Wireless,,salesrank,0.52,201000,22200,$4.03
+best smartphones,Wireless,200,salesrank,0.42,40500,18100,$2.95
+best droid phone,Wireless,100,salesrank,0.27,18100,14800,$2.51
+best smartphone 2010,Wireless,200,salesrank,0.34,33100,12100,$1.05
+best camera phone,Wireless,200,salesrank,0.32,33100,9900,$4.03
+best mobile phones,Wireless,100,salesrank,0.51,49500,8100,$2.76
+best smartphone 2011,Wireless,150,salesrank,0.44,18100,6600,$2.46
+best phone contracts,Wireless,,salesrank,0.86,14800,4400,$4.03
+best htc phone,Wireless,100,salesrank,0.47,18100,4400,$1.99
+best bluetooth headphones,WirelessAccessories,30,salesrank,0.55,9900,6600,$1.33

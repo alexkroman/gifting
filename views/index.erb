@@ -22,10 +22,12 @@
 <div style="display: none;">
 	<div id="inline-<%=category[0].to_url%>" style="width:715px;height:520px;overflow:none">
 	  <% category[1].sort_by{|x| x.sales_rank}[0..5].each do |product| %>
-      <span class="product small">
-        <span class="pictures"><a href="<%= product.referral_url %>"><img src="<%= product.medium_image %>" alt="<%= CGI.escape(product.title) %>" /></a></span>
-        <span class="title"><a href="<%= product.referral_url %>"><%= product.title.to_s[0..60] %></a></span>
+      <span class="product">
+        <span class="pictures"><a href="<%= product.url %>"><img src="<%= product.medium_image %>" alt="<%= CGI.escape(product.title) %>" /></a></span>
+        <div class="title-price">
+        <span class="title"><a href="<%= product.url %>"><%= product.title.to_s[0..60] %></a></span>
         <b><%= product.price %></b>
+        </div>
       </span>
     <% end %>
 	</div>
