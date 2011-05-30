@@ -16,9 +16,9 @@ task :keywords do
       search_index = row[1]
       default_sort = (search_index =~ /Apparel|Books|DVD|Grocery|MP3Downloads|Shoes|SportingGoods|Watches/) ? 'relevancerank' : 'pmrank'
       sort = row[3].nil? ? default_sort : row[3]
-      search = row[0].gsub('best ','')  
-      p "#{search} | #{minimum_price} | #{search_index} | #{sort}"
-      res = Amazon::Ecs.item_search(search, {:response_group => 'Medium', :search_index => search_index, :minimum_price => minimum_price, :sort => sort})
+      search = row[0].gsub('best ','')        
+      p "keyword: #{search} | price: #{minimum_price} | index: #{search_index} | sort: #{sort} | node: #{row[4]}"
+      res = Amazon::Ecs.item_search(search, {:browse_node => row[4], :response_group => 'Medium', :search_index => search_index, :minimum_price => minimum_price, :sort => sort})
       res.items.each do |item|
         small_image = item.get('imageset/smallimage/url')
         price = item.get('lowestnewprice/formattedprice')
