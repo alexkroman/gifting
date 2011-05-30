@@ -1,5 +1,5 @@
-amazon-ecs
-dm-tags
-dm-core --version 0.10.2
-dm-timestamps --version 0.10.2
-do_postgres --version 0.10.0
+sinatra
+sinatra/sequel
+erb
+cgi
+stringex
