@@ -39,14 +39,14 @@ best cell phones,Wireless,100,salesrank,2407749011,0.71,90500,60500,$2.95
 best smartphones,Wireless,200,salesrank,,0.42,40500,18100,$2.95
 best diet pills,HealthPersonalCare,,,,0.91,60500,40500,$2.93
 best air purifier,Kitchen,40,,267554011,0.95,18100,14800,$2.90
-best water filter,Kitchen,30,,,0.81,22200,14800,$2.87
+best water filter,Kitchen,30,,3741101,0.81,22200,14800,$2.87
 best laptop computer,Electronics,500,,83353631,0.75,9900,8100,$2.84
 best notebook,Electronics,300,,83353631,0.53,74000,27100,$2.84
 best notebooks,Electronics,1000,,83353631,0.62,14800,6600,$2.81
 best face cream,HealthPersonalCare,,,,0.88,22200,9900,$2.79
 best facial moisturizer,HealthPersonalCare,,,,0.63,9900,8100,$2.78
 best mineral makeup,Beauty,20,,,0.6,9900,6600,$2.78
-best water filters,Kitchen,,,,0.82,27100,22200,$2.78
+best water filters,Kitchen,,,3741101,0.82,27100,22200,$2.78
 best face moisturizer,Beauty,,,,0.67,22200,18100,$2.77
 best mobile phones,Wireless,100,salesrank,,0.51,49500,8100,$2.76
 best cellulite cream,HealthPersonalCare,,,,0.8,8100,3600,$2.75
@@ -126,7 +126,7 @@ best condoms,HealthPersonalCare,,,,0.14,33100,22200,$1.73
 best refrigerators,Kitchen,300,,,0.86,27100,22200,$1.73
 best pc laptop,Electronics,1000,,83353631,0.47,6600,4400,$1.72
 best protein shake,HealthPersonalCare,,,,0.33,18100,9900,$1.72
-best projector,Electronics,200,reviewrank,,0.57,49500,27100,$1.71
+best projector,Electronics,200,reviewrank,160355011,0.57,49500,27100,$1.71
 best protein supplement,HealthPersonalCare,,,,0.46,12100,5400,$1.71
 best refrigerators 2010,Kitchen,300,,,0.81,3600,2900,$1.71
 best whey protein,HealthPersonalCare,,,,0.35,33100,18100,$1.71
@@ -160,7 +160,7 @@ best budget laptop,Electronics,500,,83353631,0.25,6600,2900,$1.45
 best exercise bike,SportingGoods,100,,,0.71,8100,4400,$1.45
 best dog beds,PetSupplies,40,,,0.97,5400,3600,$1.44
 best laptop brand,Electronics,500,,83353631,0.45,33100,14800,$1.44
-best dishwashers,Kitchen,100,,,0.88,22200,14800,$1.43
+best dishwashers,Kitchen,100,,3741281,0.88,22200,14800,$1.43
 best hoover,Kitchen,50,,,0.54,9900,3600,$1.43
 best multivitamin,HealthPersonalCare,,,,0.49,40500,27100,$1.43
 best espresso machine,Kitchen,200,,,0.78,14800,9900,$1.41
@@ -185,14 +185,14 @@ best baby gifts,Baby,,psrank,,0.85,8100,6600,$1.31
 best gaming pc,Electronics,1500,,,0.48,22200,9900,$1.30
 best hair extensions,HealthPersonalCare,,,,0.56,22200,12100,$1.28
 best winter boots,Shoes,50,,,0.73,8100,5400,$1.28
-best dishwasher,Kitchen,500,,,0.78,49500,33100,$1.27
+best dishwasher,Kitchen,500,,3741281,0.78,49500,33100,$1.27
 best false eyelashes,Beauty,,,,0.57,4400,2400,$1.27
-best sheets,Kitchen,50,,,0.65,22200,18100,$1.27
+best sheets,Kitchen,50,,3732791,0.65,22200,18100,$1.27
 best toilets,Kitchen,50,,,0.78,9900,6600,$1.27
 best hard drive,PCHardware,30,,,0.34,135000,74000,$1.26
 best sleeping pills,HealthPersonalCare,,,,0.34,6600,3600,$1.26
-best pressure washer,Kitchen,100,,,0.81,8100,5400,$1.25
-best canister vacuum,Kitchen,100,,,0.86,8100,6600,$1.24
+best pressure washer,Kitchen,100,,552856,0.81,8100,5400,$1.25
+best canister vacuum,Kitchen,100,,510110,0.86,8100,6600,$1.24
 best dehumidifier,Kitchen,100,,,0.83,12100,8100,$1.24
 best led tvs,Electronics,100,,,0.57,90500,49500,$1.24
 best maternity clothes,Baby,30,psrank,,0.91,2400,1900,$1.24
@@ -212,8 +212,8 @@ best electric toothbrush,HealthPersonalCare,,,,0.49,14800,8100,$1.17
 best fake tan,Beauty,,,,0.31,14800,1000,$1.17
 best shaver,Kitchen,,,,0.53,40500,27100,$1.16
 best creatine,HealthPersonalCare,,,,0.17,40500,22200,$1.15
-best dishwasher brand,Kitchen,200,,,0.84,1900,1300,$1.15
-best dishwashers 2010,Kitchen,200,,,0.77,4400,2900,$1.15
+best dishwasher brand,Kitchen,200,,3741281,0.84,1900,1300,$1.15
+best dishwashers 2010,Kitchen,200,,3741281,0.77,4400,2900,$1.15
 best hd tv,Electronics,1000,,,0.55,90500,60500,$1.15
 best media player,Electronics,50,,,0.11,90500,33100,$1.15
 best ear plugs,Kitchen,,,,0.6,9900,5400,$1.13
@@ -259,7 +259,7 @@ best televisions,Electronics,100,,,0.72,18100,9900,$0.96
 best gas grills,HomeImprovement,100,,,0.81,9900,9900,$0.95
 best hd camcorders,Photo,300,,,0.4,40500,22200,$0.95
 best wireless headphones,Electronics,50,,,0.48,12100,8100,$0.95
-best sunscreen,Kitchen,,,,0.47,33100,22200,$0.94
+best sunscreen,Kitchen,,,11062651,0.47,33100,22200,$0.94
 best ereader,Electronics,100,salesrank,,0.52,40500,27100,$0.93
 best exterior paint,HomeImprovement,10,,,0.6,8100,6600,$0.93
 best hd camcorder,Photo,300,,,0.39,33100,18100,$0.93
@@ -291,7 +291,7 @@ best flat iron,Kitchen,,,,0.6,33100,27100,$0.82
 best graphics card,PCHardware,,,,0.07,60500,27100,$0.82
 best plasma tv,Electronics,1000,salesrank,,0.51,40500,27100,$0.82
 best christmas cookies,Books,,,,0.08,6600,5400,$0.81
-best cribs,Baby,100,psrank,,0.72,9900,8100,$0.81
+best cribs,Baby,100,psrank,166815011,0.72,9900,8100,$0.81
 best microwave,Kitchen,50,,,0.62,40500,27100,$0.81
 best pc games,VideoGames,40,,,0.04,301000,90500,$0.81
 best umbrella,Shoes,10,,,0.64,14800,9900,$0.81
@@ -309,7 +309,7 @@ best computer games,VideoGames,50,,,0.14,27100,14800,$0.77
 best diaper bags,Baby,,psrank,,0.69,9900,8100,$0.77
 best camcorders,Electronics,100,,,0.5,33100,18100,$0.76
 best diaper bag,Baby,,psrank,,0.63,6600,5400,$0.76
-best iron,Kitchen,10,,,0.45,135000,90500,$0.76
+best iron,Kitchen,10,,510242,0.45,135000,90500,$0.76
 best snowblower,Kitchen,100,,,0.59,9900,8100,$0.76
 best toaster ovens,Kitchen,50,,,0.75,12100,9900,$0.76
 best computer speakers,Electronics,50,reviewrank,,0.33,27100,18100,$0.75
@@ -335,7 +335,7 @@ best steam mop,Kitchen,,,,0.69,9900,8100,$0.70
 best yoga dvd,DVD,,reviewrank,,0.32,9900,6600,$0.70
 best cordless phone,Electronics,20,,,0.63,18100,12100,$0.69
 best hair dryer,Kitchen,40,,,0.65,22200,14800,$0.69
-best car seat,Kitchen,50,,,0.43,40500,33100,$0.68
+best car seat,Kitchen,50,,166839011,0.43,40500,33100,$0.68
 best coffee maker,Kitchen,50,reviewrank,289745,0.67,40500,33100,$0.68
 best coffee makers,Kitchen,50,,289745,0.7,60500,49500,$0.68
 best kitchen knives,Kitchen,30,,,0.48,8100,5400,$0.68
@@ -349,26 +349,26 @@ best humidifier,Kitchen,50,,,0.62,22200,18100,$0.66
 best binoculars,SportingGoods,40,,,0.63,27100,14800,$0.65
 best board games,Kitchen,,,,0.11,40500,27100,$0.65
 best breast pump,Baby,,psrank,,0.32,12100,8100,$0.65
-best car seats,Kitchen,50,,,0.47,74000,49500,$0.65
+best car seats,Kitchen,50,,166839011,0.47,74000,49500,$0.65
 best friend rings,Jewelry,100,,,0.59,3600,2900,$0.65
 best cookware sets,Kitchen,110,reviewrank,,0.65,1900,1900,$0.64
 best mp3 players,Electronics,100,,1264866011,0.52,22200,12100,$0.64
 the best games -controller,VideoGames,20,,,0.2,246000,74000,$0.64
-best baby strollers,Baby,50,psrank,,0.61,9900,6600,$0.63
+best baby strollers,Baby,50,psrank,166845011,0.61,9900,6600,$0.63
 best friend necklaces,Jewelry,50,,,0.57,14800,12100,$0.63
 best gps 2010,Electronics,100,,,0.43,14800,9900,$0.63
 best gps units,Electronics,100,,,0.66,4400,3600,$0.63
 best slr cameras,Photo,500,salesrank,,0.29,60500,27100,$0.63
 best baby monitor,Baby,,psrank,166870011,0.41,14800,9900,$0.62
 best booster seats,Baby,,psrank,,0.68,5400,4400,$0.62
-best double stroller,Baby,50,psrank,,0.58,8100,6600,$0.62
+best double stroller,Baby,50,psrank,166845011,0.58,8100,6600,$0.62
 best game ever -controller,VideoGames,,,,0.12,110000,49500,$0.62
 best baby monitors,Baby,30,psrank,166870011,0.43,22200,12100,$0.61
 best games ever,VideoGames,,,,0.13,90500,33100,$0.61
 best motherboard,Electronics,50,,,0.34,74000,33100,$0.61
 best slr,Photo,300,salesrank,,0.26,90500,40500,$0.61
-best stroller,Kitchen,50,,,0.52,49500,33100,$0.61
-best strollers,Kitchen,100,,,0.58,27100,18100,$0.61
+best stroller,Kitchen,50,,166845011,0.52,49500,33100,$0.61
+best strollers,Kitchen,100,,166845011,0.58,27100,18100,$0.61
 best xbox games -controller,VideoGames,20,,,0.04,135000,74000,$0.61
 best christmas movies,DVD,,salesrank,,0.05,33100,18100,$0.60
 best digital camcorder,Electronics,300,,,0.45,5400,3600,$0.60
@@ -380,7 +380,7 @@ best coffee grinder,Kitchen,30,,,0.58,6600,5400,$0.59
 best digital cameras,Photo,200,,,0.45,110000,60500,$0.59
 best interior paint,HomeImprovement,,,,0.52,8100,6600,$0.59
 best bikes,SportingGoods,,,,0.44,90500,49500,$0.58
-best irons,Beauty,,,,0.39,60500,33100,$0.58
+best irons,Beauty,,,510242,0.39,60500,33100,$0.58
 best workout songs,MP3Downloads,,salesrank,,0.05,27100,22200,$0.58
 best car speakers,Automotive,,salesrank,,0.34,14800,9900,$0.57
 best digital slr,Photo,300,salesrank,,0.31,40500,18100,$0.57
@@ -391,7 +391,7 @@ best radar detectors,Electronics,50,,,0.56,22200,18100,$0.56
 best cookware,Kitchen,50,,,0.6,33100,27100,$0.55
 best knife sharpener,Kitchen,,,,0.62,8100,5400,$0.54
 best routers,Electronics,40,,,0.46,33100,22200,$0.54
-best jogging stroller,Baby,50,psrank,,0.64,5400,5400,$0.53
+best jogging stroller,Baby,50,psrank,166845011,0.64,5400,5400,$0.53
 best wifi router,Electronics,40,,,0.51,6600,3600,$0.53
 best wireless keyboard,Electronics,30,,,0.42,12100,6600,$0.53
 the best gps,Electronics,50,,,0.59,27100,22200,$0.53
@@ -419,7 +419,7 @@ best bathroom scale,Kitchen,40,,,0.67,2900,2400,$0.44
 best bread maker,Kitchen,100,,,0.43,8100,2900,$0.44
 best curling iron,Kitchen,,,,0.42,14800,9900,$0.44
 best sewing machine,Kitchen,150,reviewrank,,0.52,22200,14800,$0.44
-best chainsaw,Tools,100,,,0.55,9900,8100,$0.43
+best chainsaw,Tools,100,,552918,0.55,9900,8100,$0.43
 best mmorpg,VideoGames,,,,0.25,110000,49500,$0.43
 best breadmaker,Kitchen,100,,,0.43,8100,2900,$0.42
 best country songs,MP3Downloads,2,reviewrank,,0.01,49500,40500,$0.42
@@ -427,16 +427,16 @@ best curling irons,Kitchen,30,,,0.44,18100,12100,$0.42
 best kites,Toys,,salesrank,,0.42,4400,1600,$0.42
 best universal remote,Electronics,50,,,0.43,8100,6600,$0.42
 best wireless routers,Electronics,50,reviewrank,,0.41,110000,74000,$0.41
-best dvd recorder,Electronics,200,,,0.6,12100,6600,$0.40
+best dvd recorder,Electronics,200,,1036920,0.6,12100,6600,$0.40
 best food processors,Kitchen,50,,,0.49,22200,12100,$0.40
 best mountain bike,SportingGoods,500,,,0.31,49500,27100,$0.40
 best wireless router,Electronics,50,reviewrank,,0.41,110000,74000,$0.40
 best food processor,Kitchen,100,,,0.46,18100,9900,$0.39
-best irons 2010,Kitchen,50,,,0.29,6600,3600,$0.39
+best irons 2010,Kitchen,50,,510242,0.29,6600,3600,$0.39
 best sewing machines,Kitchen,150,reviewrank,,0.66,6600,4400,$0.39
 best slow cooker,Kitchen,50,,,0.23,27100,14800,$0.39
-best steam iron,Kitchen,50,,,0.78,8100,2900,$0.39
-best steam irons,Kitchen,30,,,0.79,14800,4400,$0.39
+best steam iron,Kitchen,50,,510242,0.78,8100,2900,$0.39
+best steam irons,Kitchen,30,,510242,0.79,14800,4400,$0.39
 best waffle maker,Kitchen,,,,0.6,3600,2900,$0.39
 best rice cooker,Kitchen,30,,,0.44,8100,5400,$0.38
 best quotes,Books,,,,0.02,60500,22200,$0.37
